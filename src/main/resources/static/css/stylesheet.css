@@ -50,7 +50,7 @@ header {
 	left:480px;
 	display: block;
 	gap: 48px;
-	text-align: center;
+	position: relative;
 }
 
 
@@ -119,6 +119,8 @@ header {
 	height: 53px;
 	padding: 16px 80px;
 	background-color: #1B5678;
+	position: absolute;
+	left: 124px;
 }
 
 
