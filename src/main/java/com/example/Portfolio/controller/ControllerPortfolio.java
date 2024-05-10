@@ -30,9 +30,17 @@ public class ControllerPortfolio {
 	 @GetMapping(value = "/user/add")
 	    public String displayAdd(Model model) {
 	        model.addAttribute("portfolioAddRequest", new PortfolioAddRequest());
-	        return "user/add";
+	        return "/user/add";
 	    }
 	
+	 @GetMapping(value = "/user/top")
+	 	public String displayAdd() {
+		 
+		 return "/user/top";
+	 }
+	 
+	 
+	 
 	 @RequestMapping(value = "/user/create", method = RequestMethod.POST)
 	    public String create(@Validated @ModelAttribute PortfolioAddRequest portfolioRequest, BindingResult result, Model model) {
 	        if (result.hasErrors()) {
@@ -42,7 +50,7 @@ public class ControllerPortfolio {
 	                errorList.add(error.getDefaultMessage());
 	            }
 	            model.addAttribute("validationError", errorList);
-	            return "user/add";
+	            return "/user/add";
 	        }
 	        // ユーザー情報の登録
 	        userInfoService.save(portfolioRequest);
