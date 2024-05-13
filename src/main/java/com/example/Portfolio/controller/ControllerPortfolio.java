@@ -11,12 +11,12 @@ import org.springframework.validation.ObjectError;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
+
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.example.Portfolio.dto.PortfolioAddRequest;
-import com.example.Portfolio.entity.Portfolio;
+
 import com.example.Portfolio.service.PortfolioService;
 
 
@@ -24,10 +24,9 @@ import com.example.Portfolio.service.PortfolioService;
 public class ControllerPortfolio {
 	
 	@Autowired
-    private PortfolioService userInfoService;
+    private PortfolioService portfolioService;
 	
-	
-	 @GetMapping(value = "/user/add")
+	@GetMapping(value = "/user/add")
 	    public String displayAdd(Model model) {
 	        model.addAttribute("portfolioAddRequest", new PortfolioAddRequest());
 	        return "/user/add";
@@ -53,8 +52,8 @@ public class ControllerPortfolio {
 	            return "/user/add";
 	        }
 	        // ユーザー情報の登録
-	        userInfoService.save(portfolioRequest);
-	        return "redirect:/user/list";
+	        portfolioService.save(portfolioRequest);
+	        return "redirect:/user/top";
 	    }
 
 }

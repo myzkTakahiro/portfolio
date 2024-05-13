@@ -16,29 +16,20 @@
 		<div class = "btn-white"><a class="text">ログイン</a></div>
 	</header>
 	<h2 class="title">新規登録</h2>
-	<form th:action="@{/user/add}" th:object="${userAddRequest}" th:method="post"></form>
+	
 	
 	<div class="form">
 		<div class="input">
 			<label class="name-label">氏名</label>
-			<input type="text" th:field="*{name}" class="input">
-	  		<div th:if="${#fields.hasErrors('name')}" th:errors="*{name}" th:errorclass="err">
-	  	    	<label class="text-danger" th:text="${error}"></label>
-	  	    </div>
+			<input type="text" class="input">
 		</div>
 		<div class="input">
 			<label class="email-label">メールアドレス</label>
-			<input type="text" th:field="*{email}" class="input">
-	  		<div th:if="${#fields.hasErrors('email')}" th:errors="*{email}" th:errorclass="err">
-	  	    	<label class="text-danger" th:text="${error}"></label>
-	  		</div>
+			<input type="text" class="input">
 		</div>
 		<div class="input">
 			<label class="pass-label">パスワード</label>
-			<input type="password" th:field="*{password}" class="input">
-	  		<div th:if="${#fields.hasErrors('password')}" th:errors="*{password}" th:errorclass="err">
-	  	    	<label class="text-danger" th:text="${error}"></label>
-	  		</div>
+			<input type="password" class="input">
 		</div>
 		
 		<div class="add">
