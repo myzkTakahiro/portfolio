@@ -19,23 +19,23 @@ import com.example.Portfolio.dto.PortfolioAddRequest;
 
 import com.example.Portfolio.service.PortfolioService;
 
-
+@RequestMapping("/")
 @Controller
 public class PortfolioController {
 	
 	@Autowired
     private PortfolioService portfolioService;
 	
-	@GetMapping(value = "/user/add")
+	@GetMapping(value = "/add")
 	    public String displayAdd(Model model) {
 	        model.addAttribute("portfolioAddRequest", new PortfolioAddRequest());
 	        return "/user/add";
 	    }
 	
-	 @GetMapping(value = "/user/top")
+	 @GetMapping(value = "/top")
 	 	public String displayAdd() {
 		 
-		 return "/user/top";
+		 return "user/top";
 	 }
 	 
 	 
@@ -49,11 +49,11 @@ public class PortfolioController {
 	                errorList.add(error.getDefaultMessage());
 	            }
 	            model.addAttribute("validationError", errorList);
-	            return "/user/add";
+	            return "/add";
 	        }
 	        // ユーザー情報の登録
 	        portfolioService.save(portfolioRequest);
-	        return "redirect:/user/top";
+	        return "redirect:/top";
 	    }
 
 }

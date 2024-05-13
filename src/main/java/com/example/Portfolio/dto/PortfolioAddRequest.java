@@ -13,19 +13,21 @@ import lombok.Data;
 public class PortfolioAddRequest implements Serializable {
 	
 	
-	@NotEmpty(message = "名前を入力してください")
-    @Size(max = 100, message = "名前は100桁以内で入力してください")
-    private String name;
-	
-	@NotEmpty(message = "メールアドレスを入力してください")
-    @Size(max = 100, message = "メールアドレスは100桁以内で入力してください")
-    private String email;
-	
-	@Pattern(regexp = "", message = "電話番号の形式で入力してください")
-    private String phone;
-	
-	@NotEmpty(message = "パスワードを入力してください")
-    @Size(min = 8, max = 30, message = "パスワードは30桁以内で入力してください")
-    private String password;
+	 	@NotEmpty(message = "名前は必ず入力してください")
+	    @Size(max = 255, message = "名前は255文字以内で入力してください")
+	    private String name;
+	  
+	 	
+	    @NotEmpty(message = "パスワードは必ず入力してください")
+	    @Size(min = 8, message = "8文字以上で入力してください")
+	    @Pattern(regexp = "(?=.*[0-9])(?=.*[a-zA-Z]).{6,30}",
+	    message = "英数字8文字以上で入力してください")
+	    private String password;
+	 
+	    
+	    @NotEmpty(message = "メールアドレスは必ず入力してください")
+	    @Pattern(regexp = "^(([a-zA-Z0-9])+([a-zA-Z0-9\\._-])*@([a-zA-Z0-9_-])+([a-zA-Z0-9\\._-]+)+)*$", 
+	    message = "メールアドレスが正しい形式ではありません")
+	    private String email;
 
 }

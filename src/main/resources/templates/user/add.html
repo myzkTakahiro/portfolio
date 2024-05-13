@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8" http-equiv="Content-Type" />
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -15,29 +15,31 @@
 		<h1 class="logo">My Portfolio</h1>
 		<div class = "btn-white"><a class="text">ログイン</a></div>
 	</header>
+	<div th:if="${validationError}" th:each="error : ${validationError}">
+    	<label class="text-danger" th:text="${error}"></label>
+    </div>
 	<h2 class="title">新規登録</h2>
 	
 	
-	<div class="form">
-		<div class="input">
-			<label class="name-label">氏名</label>
-			<input type="text" class="input">
-		</div>
-		<div class="input">
-			<label class="email-label">メールアドレス</label>
-			<input type="text" class="input">
-		</div>
-		<div class="input">
-			<label class="pass-label">パスワード</label>
-			<input type="password" class="input">
-		</div>
-		
-		<div class="add">
-			<a class="add-btn" href="/top.html">登録する</a>
-		</div>
-	</div>
-	
-	
+	<form th:action="@{/user/add}" th:object="${portfolioAddRequest}" th:method="post">
+		<div class="form">
+			<div class="input">
+				<label class="name-label">氏名</label>
+				<input type="text" th:field="*{name}" class="input">
+        	</div>
+			<div class="input">
+				<label class="email-label">メールアドレス</label>
+				<input type="email" th:field="*{email}" class="input">
+			</div>
+			<div class="input">
+				<label class="pass-label">パスワード</label>
+				<input type="password" th:field="*{password}" class="input">
+			</div>
+			<div class="add">
+				<a class="add-btn" href="/top">登録する</a>
+			</div>
+		</div>	
+	</form>
 	<div class="footer">
 		<p>portfolio site</p>
 	</div>
