@@ -21,12 +21,12 @@
         INSERT INTO users
             (name, email, password, updated_at, created_at)
         VALUES
-            (#{name}, #{email}, #{password}, CURRENT_TIMESTAMP,  CURRENT_TIMESTAMP)
+            (#{name}, #{email}, #{password}, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP)
     </insert>
 
     <!-- 更新 -->
     <update id="update">
-        UPDATE users SET name = #{name}, email = #{email}, password = #{password}, updated_at = CURRENT_TIMESTAMP WHERE id = #{id}
+        UPDATE users SET name = #{name}, email = #{email}, password = #{password}, updated_at = CURRENT_TIMESTAMP)
     </update>
 
     

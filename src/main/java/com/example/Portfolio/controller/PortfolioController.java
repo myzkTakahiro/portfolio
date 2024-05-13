@@ -40,7 +40,7 @@ public class PortfolioController {
 	 
 	 
 	 
-	 @RequestMapping(value = "/user/create", method = RequestMethod.POST)
+	 @RequestMapping(value = "/add", method = RequestMethod.POST)
 	    public String create(@Validated @ModelAttribute PortfolioAddRequest portfolioRequest, BindingResult result, Model model) {
 	        if (result.hasErrors()) {
 	            // 入力チェックエラーの場合
@@ -49,7 +49,7 @@ public class PortfolioController {
 	                errorList.add(error.getDefaultMessage());
 	            }
 	            model.addAttribute("validationError", errorList);
-	            return "/add";
+	            return "user/add";
 	        }
 	        // ユーザー情報の登録
 	        portfolioService.save(portfolioRequest);

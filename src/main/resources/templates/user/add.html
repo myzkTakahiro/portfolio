@@ -15,28 +15,35 @@
 		<h1 class="logo">My Portfolio</h1>
 		<div class = "btn-white"><a class="text">ログイン</a></div>
 	</header>
-	<div th:if="${validationError}" th:each="error : ${validationError}">
-    	<label class="text-danger" th:text="${error}"></label>
-    </div>
+	
 	<h2 class="title">新規登録</h2>
 	
 	
-	<form th:action="@{/user/add}" th:object="${portfolioAddRequest}" th:method="post">
+	<form th:action="@{/add}" th:object="${portfolioAddRequest}" th:method="post">
 		<div class="form">
 			<div class="input">
 				<label class="name-label">氏名</label>
 				<input type="text" th:field="*{name}" class="input">
+				<div th:if="${#fields.hasErrors('name')}" th:errors="*{name}" th:errorclass="err">
+            		<label class="text-danger" th:text="${error}"></label>
+            	</div>
         	</div>
 			<div class="input">
 				<label class="email-label">メールアドレス</label>
 				<input type="email" th:field="*{email}" class="input">
+				<div th:if="${#fields.hasErrors('email')}" th:errors="*{email}" th:errorclass="err">
+            		<label class="text-danger" th:text="${error}"></label>
+            	</div>
 			</div>
 			<div class="input">
 				<label class="pass-label">パスワード</label>
 				<input type="password" th:field="*{password}" class="input">
+				<div th:if="${#fields.hasErrors('password')}" th:errors="*{password}" th:errorclass="err">
+            		<label class="text-danger" th:text="${error}"></label>
+            	</div>
 			</div>
 			<div class="add">
-				<a class="add-btn" href="/top">登録する</a>
+				<input type="submit" value="登録する" class="add-btn">
 			</div>
 		</div>	
 	</form>
