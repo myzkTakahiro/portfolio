@@ -76,7 +76,7 @@ public class PortfolioController {
 		 if (error != null) {
 			 mav.addObject("mav", "ログインできませんでした。");
 		 } else {
-			 mav.addObject("mav", "ユーザー名とパスワードを入力");
+			 mav.addObject("/top");
 		 }
 		 return mav;
 	 }
