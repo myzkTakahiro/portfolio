@@ -39,6 +39,13 @@ public class PortfolioController {
 	 }
 	 
 	 
+	 @GetMapping(value = "/login")
+	 	public String displayLogin() {
+		 
+		 return "user/login";
+	 }
+	 
+	 
 	 
 	 @RequestMapping(value = "/add", method = RequestMethod.POST)
 	    public String create(@Validated @ModelAttribute PortfolioAddRequest portfolioRequest, BindingResult result, Model model) {
