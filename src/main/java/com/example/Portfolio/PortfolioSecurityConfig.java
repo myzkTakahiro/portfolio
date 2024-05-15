@@ -1,9 +1,7 @@
 package com.example.Portfolio;
 
-import org.springframework.boot.autoconfigure.security.servlet.PathRequest;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.security.config.annotation.method.configuration.EnableMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -12,31 +10,46 @@ import org.springframework.security.web.SecurityFilterChain;
 
 @Configuration
 @EnableWebSecurity
-@EnableMethodSecurity
 public class PortfolioSecurityConfig {
 
-    @Bean
+	@Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-        http.formLogin(login -> login
-                .loginProcessingUrl("/login")
-                .loginPage("/top")
-                .defaultSuccessUrl("/login")
-                .failureUrl("/add")
+        http
+            .authorizeHttpRequests((requests) -> requests
+                // アクセス制限をかけない
+                .requestMatchers("/"
+                		, "/login"
+                		, "/css/**"
+                        , "/login?error"
+                        , "/mysql-console/**")
                 .permitAll()
-        ).logout(logout -> logout
-                .logoutSuccessUrl("/")
-        ).authorizeHttpRequests(authz -> authz
-                .requestMatchers(PathRequest.toStaticResources().atCommonLocations()).permitAll()
-                .requestMatchers("/").permitAll()
-                .requestMatchers("/top").hasRole("TOPPAGE")
-                .requestMatchers("/add").hasRole("SIGNIN")
                 .anyRequest().authenticated()
-        );
+            )
+            .formLogin((login) -> login
+                .usernameParameter("username")
+                .passwordParameter("password")
+                // ログインを実行するページ
+                .loginProcessingUrl("/login")
+                // ログイン画面
+                .loginPage("/login")
+                // ログイン失敗時のURL
+                .failureUrl("/login?error")
+                // ログインに成功した場合の遷移先
+                .defaultSuccessUrl("/top", true)
+                // アクセス権
+                .permitAll()
+
+            )
+            .logout((logout) -> logout
+                 // ログアウトした場合の遷移先
+                .permitAll());
+       
+        
         return http.build();
     }
 
     @Bean
-    public PasswordEncoder passwordEncoder() {
+    PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
     }
 }

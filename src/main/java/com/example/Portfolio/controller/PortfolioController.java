@@ -41,13 +41,7 @@ public class PortfolioController {
 		 return "user/top";
 	 }
 	 
-	 
-	 @GetMapping(value = "/login")
-	 	public String displayLogin() {
-		 
-		 return "user/login";
-	 }
-	 
+
 	 
 	 
 	 @RequestMapping(value = "/add", method = RequestMethod.POST)
@@ -67,19 +61,7 @@ public class PortfolioController {
 	    }
 	 
 	 
-	 @RequestMapping("/login")
-	 @PreAuthorize("permitAll")
-	 public ModelAndView login(ModelAndView mav,
-			 @RequestParam(value = "error", required=false)String error) {
-		 mav.setViewName("login");
-		 System.out.println(error);
-		 if (error != null) {
-			 mav.addObject("mav", "ログインできませんでした。");
-		 } else {
-			 mav.addObject("/top");
-		 }
-		 return mav;
-	 }
+	 
 	 
 	 
 	 
