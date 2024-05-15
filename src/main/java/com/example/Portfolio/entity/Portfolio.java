@@ -17,28 +17,28 @@ public class Portfolio implements Serializable {
 	
 	private String name;
 	
-	protected String email;
+	protected static String email;
 	
-	private String password;
+	private static String password;
 	
 	private Date updateDate;
 	
 	private Date createDate;
 
-	public String getEmail() {
+	public static String getEmail() {
         return email;
     }
 
     public void setEmail(String email) {
-        this.email = email;
+        Portfolio.email = email;
     }
 
-    public String getPassword() {
+    public static String getPassword() {
         return password;
     }
 
     public void setPassword(String password) {
-        this.password = password;
+        Portfolio.password = password;
     }
 
 }

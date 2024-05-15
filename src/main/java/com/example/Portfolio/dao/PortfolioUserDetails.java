@@ -1,25 +1,24 @@
 package com.example.Portfolio.dao;
 
-import java.util.Collection;
-
-import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.AuthorityUtils;
 import org.springframework.security.core.userdetails.User;
-import org.springframework.security.core.userdetails.UserDetails;
 
 import com.example.Portfolio.entity.Portfolio;
 
+import lombok.Data;
+import lombok.EqualsAndHashCode;
 
+@Data
+@EqualsAndHashCode(callSuper=false)
+public class PortfolioUserDetails extends User {
 
-
-
-
-public class PortfolioUserDetails extends Portfolio {
-
-	
+	private final Portfolio portfolio;
 
 	// username,password,authoritiesを引数に取るコンストラクタを用意
-	public PortfolioUserDetails(String eamil, String password, Collection<? extends GrantedAuthority> authorities) {
-		super(email, password, authorities);
+	public PortfolioUserDetails(Portfolio portfolio, String role) {
+		
+		super(Portfolio.getEmail(), Portfolio.getPassword() ,AuthorityUtils.createAuthorityList(role));
+		this.portfolio = portfolio;
 	}
 	
 }
