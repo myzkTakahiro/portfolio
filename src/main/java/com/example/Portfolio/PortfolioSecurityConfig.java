@@ -18,6 +18,7 @@ public class PortfolioSecurityConfig {
             .authorizeHttpRequests((requests) -> requests
                 // アクセス制限をかけない
                 .requestMatchers("/"
+                		,"/add"
                 		, "/login"
                 		, "/css/**"
                         , "/login?error"
@@ -33,7 +34,7 @@ public class PortfolioSecurityConfig {
                 // ログイン画面
                 .loginPage("/login")
                 // ログイン失敗時のURL
-                .failureUrl("/login?error")
+                .failureUrl("/login")
                 // ログインに成功した場合の遷移先
                 .defaultSuccessUrl("/top", true)
                 // アクセス権

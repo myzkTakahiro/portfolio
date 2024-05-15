@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.example.Portfolio.dto.PortfolioAddRequest;
-
+import com.example.Portfolio.dto.PortfolioSearchRequest;
 import com.example.Portfolio.service.PortfolioService;
 
 @RequestMapping("/")
@@ -61,12 +61,11 @@ public class PortfolioController {
 	    }
 	 
 	 
-	 
-	 
-	 
-	 
-	 
-	 
+	 @RequestMapping("/login")
+	    public String search(@ModelAttribute PortfolioSearchRequest portfolioSearchRequest, Model model) {
+	        
+	        return "user/login";
+	    }
 	 
 	 
 
