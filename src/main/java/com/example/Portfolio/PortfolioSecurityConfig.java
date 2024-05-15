@@ -54,3 +54,6 @@ public class PortfolioSecurityConfig {
         return new BCryptPasswordEncoder();
     }
 }
+
+
+

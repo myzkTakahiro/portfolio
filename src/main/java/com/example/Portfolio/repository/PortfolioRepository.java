@@ -10,7 +10,7 @@ import com.example.Portfolio.entity.Portfolio;
 @Repository
 public interface PortfolioRepository extends CrudRepository<Portfolio, Long> {
 	
-	Optional<Portfolio> findByEmail(String email);
+	Optional<Portfolio> findByEmail(String email); 
 
 	
 
