@@ -19,9 +19,9 @@ public class PortfolioSecurityConfig {
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http.formLogin(login -> login
                 .loginProcessingUrl("/login")
-                .loginPage("/login")
+                .loginPage("/top")
                 .defaultSuccessUrl("/login")
-                .failureUrl("/top")
+                .failureUrl("/add")
                 .permitAll()
         ).logout(logout -> logout
                 .logoutSuccessUrl("/")

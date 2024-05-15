@@ -25,5 +25,8 @@ public interface PortfolioMapper {
 	
 	
 	void update(PortfolioUpdateRequest portfolioUpdateRequest);
+	
+	
+	public Portfolio getAccount(String email);
 
 }

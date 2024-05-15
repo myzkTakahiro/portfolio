@@ -1,7 +1,10 @@
 package com.example.Portfolio.entity;
 
 import java.io.Serializable;
+import java.util.Collection;
 import java.util.Date;
+
+import org.springframework.security.core.GrantedAuthority;
 
 import lombok.Data;
 
@@ -21,6 +24,10 @@ public class Portfolio implements Serializable {
 	private Date updateDate;
 	
 	private Date createDate;
+
 	
 
 }
+
+
+
