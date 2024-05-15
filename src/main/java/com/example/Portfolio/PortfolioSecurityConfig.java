@@ -34,7 +34,7 @@ public class PortfolioSecurityConfig {
                 // ログイン画面
                 .loginPage("/login")
                 // ログイン失敗時のURL
-                .failureUrl("/login")
+                .failureUrl("/login?error")
                 // ログインに成功した場合の遷移先
                 .defaultSuccessUrl("/top", true)
                 // アクセス権

@@ -17,7 +17,7 @@ public class Portfolio implements Serializable {
 	
 	private String name;
 	
-	private String email;
+	protected String email;
 	
 	private String password;
 	
