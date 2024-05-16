@@ -2,6 +2,7 @@ package com.example.Portfolio.dto;
 
 import jakarta.validation.constraints.NotEmpty;
 
+
 public class PortfolioSearchRequest {
 	
 	  @NotEmpty

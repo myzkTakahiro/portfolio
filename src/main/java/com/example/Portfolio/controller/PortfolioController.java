@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -14,6 +15,8 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.example.Portfolio.dto.PortfolioAddRequest;
 import com.example.Portfolio.dto.PortfolioSearchRequest;
@@ -38,6 +41,7 @@ public class PortfolioController {
 		 return "user/top";
 	 }
 	 
+
 	 
 	 
 	 @RequestMapping(value = "/add", method = RequestMethod.POST)
@@ -55,11 +59,12 @@ public class PortfolioController {
 	        portfolioService.save(portfolioRequest);
 	        return "redirect:/top";
 	    }
-	 
+
 	 @RequestMapping("/login")
 	    public String search(@ModelAttribute PortfolioSearchRequest portfolioSearchRequest, Model model) {
 	        
 	        return "user/login";
 	    }
+
 
 }

@@ -12,6 +12,4 @@ public interface PortfolioRepository extends CrudRepository<Portfolio, Long> {
 	
 	Optional<Portfolio> findByEmail(String email); 
 
-	
-
 }
