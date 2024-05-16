@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.example.Portfolio.dto.PortfolioAddRequest;
-
+import com.example.Portfolio.dto.PortfolioSearchRequest;
 import com.example.Portfolio.service.PortfolioService;
 
 @RequestMapping("/")
@@ -54,6 +54,12 @@ public class PortfolioController {
 	        // ユーザー情報の登録
 	        portfolioService.save(portfolioRequest);
 	        return "redirect:/top";
+	    }
+	 
+	 @RequestMapping("/login")
+	    public String search(@ModelAttribute PortfolioSearchRequest portfolioSearchRequest, Model model) {
+	        
+	        return "user/login";
 	    }
 
 }
