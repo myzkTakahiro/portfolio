@@ -20,9 +20,13 @@
 	float: right;
 	width: 152px;
 	height: 53px;
+	font-family: Roboto;
+	font-weight: 400;
+	font-size: 18px;
+	line-height: 21.09px;
 	border-radius: 4px;
 	background-color: white;
-	padding: 16px 40px;
+	padding: 16px 0px;
 }
 
 header {
@@ -30,7 +34,9 @@ header {
 	height: 120px;
 	padding: 0px 40px;
 	background-color: #1B5678;
+	display: flex;
 	justify-content: space-between;
+	align-items: center;
 	position: relative;
 }
 

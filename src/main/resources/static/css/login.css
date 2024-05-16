@@ -147,4 +147,13 @@ h2 {
 }
 
 
-
+.alert {
+	width: 480px;
+	padding: 0;
+	border: 0;
+	margin: 0;
+	font-family: Roboto;
+	color: red;
+	position: absolute;
+	top: 162px;
+}
