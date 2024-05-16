@@ -12,8 +12,7 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
-
-import com.example.Portfolio.entity.Portfolio;
+import com.example.Portfolio.entity.users;
 import com.example.Portfolio.repository.PortfolioRepository;
 
 @Service
@@ -40,7 +39,7 @@ public class PortfolioUserDetailsService implements UserDetailsService{
                 .build();
     }
     // DBベースのユーザー検索
-    Portfolio appUser = portfolioRepository.findByEmail(email)
+    users appUser = portfolioRepository.findByEmail(email)
             .orElseThrow(() -> new UsernameNotFoundException("User not found with email: " + email));
     
     return User.builder()
