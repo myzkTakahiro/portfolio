@@ -45,6 +45,7 @@ public class PortfolioSecurityConfig {
 
             )
             .logout((logout) -> logout
+            		
             	.logoutSuccessUrl("/login?logout")
                  // ログアウトした場合の遷移先
                 .permitAll());
