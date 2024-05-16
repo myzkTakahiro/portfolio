@@ -13,6 +13,18 @@
     <select id="findById" resultType="com.example.Portfolio.entity.Portfolio">
         SELECT * FROM users WHERE id=#{id} AND delete_date IS NULL
     </select>
+    
+    
+    <select id="findByEmail" resultType="com.example.Portfolio.entity.Portfolio"
+                             parameterType="String">
+        SELECT
+          email,password
+        FROM
+           users
+        WHERE
+           id = #{id}
+
+    </select>
 
    
 
@@ -31,3 +43,6 @@
 
     
 </mapper>
+
+
+
