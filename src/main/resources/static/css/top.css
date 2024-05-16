@@ -67,18 +67,19 @@ p {
 .main {
 	width: 1440px;
 	height: 742px;
-	padding: 80px 0px;
+	padding: o;
+	position: relative;
 }
 
 .profile {
 	width: 960px;
 	height: 360px;
+	margin-top: 90px;;
 }
 
 .content {
 	width: 520px;
 	height: 256px;
-	margin-top: 52px;
 	margin-left: 440px;
 }
 
@@ -108,13 +109,15 @@ p {
 .chart {
 	width: 960px;
 	height: 331px;
-	border-top: 480px;
+	margin-top: 100px;
 }
 
 
 .wrapper {
 	width: 960px;
 	height: 582px;
+	position: absolute;
+	left: 240px;
 }
 
 .title-skil {
