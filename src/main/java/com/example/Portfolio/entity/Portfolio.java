@@ -17,7 +17,7 @@ public class Portfolio implements Serializable {
 	
 	private String name;
 	
-	protected static String email;
+	protected  String email;
 	
 	private static String password;
 	
@@ -25,12 +25,12 @@ public class Portfolio implements Serializable {
 	
 	private Date createDate;
 
-	public static String getEmail() {
+	public  String getEmail() {
         return email;
     }
 
     public void setEmail(String email) {
-        Portfolio.email = email;
+        this.email = email;
     }
 
     public static String getPassword() {
