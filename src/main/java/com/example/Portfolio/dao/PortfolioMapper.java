@@ -7,7 +7,8 @@ import org.apache.ibatis.annotations.Mapper;
 import com.example.Portfolio.dto.PortfolioAddRequest;
 
 import com.example.Portfolio.dto.PortfolioUpdateRequest;
-import com.example.Portfolio.entity.Portfolio;
+
+import com.example.Portfolio.entity.users;
 
 
 
@@ -16,9 +17,9 @@ public interface PortfolioMapper {
 	
 	
 	
-	List<Portfolio> findAll();
+	List<users> findAll();
 	
-	Portfolio findById(Long id);
+	users findById(Long id);
 	
 	
 	void save(PortfolioAddRequest portfolioRequest);
@@ -26,8 +27,8 @@ public interface PortfolioMapper {
 	
 	void update(PortfolioUpdateRequest portfolioUpdateRequest);
 	
-	
-	public Portfolio findByEmail(String email);
+
+	public users findByEmail(String email);
 
 }
 

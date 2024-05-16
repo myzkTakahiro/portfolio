@@ -1,16 +1,13 @@
 package com.example.Portfolio.entity;
 
 import java.io.Serializable;
-import java.util.Collection;
 import java.util.Date;
-
-import org.springframework.security.core.GrantedAuthority;
 
 import lombok.Data;
 
 
 @Data
-public class Portfolio implements Serializable {
+public class users implements Serializable {
 	
 	
 	private Long id;
@@ -19,11 +16,11 @@ public class Portfolio implements Serializable {
 	
 	protected  String email;
 	
-	private static String password;
+	private  String password;
 	
-	private Date updateDate;
+	private Date updated_at;
 	
-	private Date createDate;
+	private Date created_at;
 
 	public  String getEmail() {
         return email;
@@ -33,17 +30,12 @@ public class Portfolio implements Serializable {
         this.email = email;
     }
 
-    public static String getPassword() {
+    public  String getPassword() {
         return password;
     }
 
     public void setPassword(String password) {
-        Portfolio.password = password;
+        this.password = password;
     }
-
+	
 }
-
-
-
-
-

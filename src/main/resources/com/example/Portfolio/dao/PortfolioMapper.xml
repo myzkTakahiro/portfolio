@@ -5,20 +5,20 @@
 <mapper namespace="com.example.Portfolio.dao.PortfolioMapper">
 
     <!-- 全件検索 -->
-    <select id="findAll" resultType="com.example.Portfolio.entity.Portfolio">
+    <select id="findAll" resultType="com.example.Portfolio.entity.users">
         SELECT * FROM users WHERE delete_date IS NULL
     </select>
 
     <!-- 主キー検索 -->
-    <select id="findById" resultType="com.example.Portfolio.entity.Portfolio">
+    <select id="findById" resultType="com.example.Portfolio.entity.users">
         SELECT * FROM users WHERE id=#{id} AND delete_date IS NULL
     </select>
     
-    
-    <select id="findByEmail" resultType="com.example.Portfolio.entity.Portfolio"
+
+    <select id="findByEmail" resultType="com.example.Portfolio.entity.users"
                              parameterType="String">
         SELECT
-          email,password
+          email, password
         FROM
            users
         WHERE

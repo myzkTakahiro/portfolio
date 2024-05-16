@@ -59,14 +59,12 @@ public class PortfolioController {
 	        portfolioService.save(portfolioRequest);
 	        return "redirect:/top";
 	    }
-	 
-	 
+
 	 @RequestMapping("/login")
 	    public String search(@ModelAttribute PortfolioSearchRequest portfolioSearchRequest, Model model) {
 	        
 	        return "user/login";
 	    }
-	 
-	 
+
 
 }

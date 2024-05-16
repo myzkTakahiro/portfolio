@@ -143,6 +143,17 @@ h2 {
 	color: rgba (0 0 0 54);
 	position: absolute;
 	z-index: 4;
+
 }
 
 
+.alert {
+	width: 480px;
+	padding: 0;
+	border: 0;
+	margin: 0;
+	font-family: Roboto;
+	color: red;
+	position: absolute;
+	top: 162px;
+}
