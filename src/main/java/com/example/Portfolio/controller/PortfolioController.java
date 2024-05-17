@@ -1,5 +1,6 @@
 package com.example.Portfolio.controller;
 
+import java.security.Principal;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -7,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -20,8 +22,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.example.Portfolio.dao.PortfolioUserDetails;
 import com.example.Portfolio.dto.PortfolioAddRequest;
 import com.example.Portfolio.dto.PortfolioSearchRequest;
+import com.example.Portfolio.entity.users;
 import com.example.Portfolio.service.PortfolioService;
 
 @RequestMapping("/")
@@ -38,8 +42,11 @@ public class PortfolioController {
 	    }
 	
 	 @GetMapping(value = "/top")
-	 	public String displayAdd() {
-		 
+	 	public String displayTop(Model model) {
+		 Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+	        //Principalからログインユーザの情報を取得
+	        String userName = auth.getName();
+	        model.addAttribute("userName", userName);
 		 return "user/top";
 	 }
 	 
@@ -63,11 +70,8 @@ public class PortfolioController {
 	    }
 
 	 @RequestMapping("/login")
-	    public String search(Model model) {
-		 	Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-	        //Principalからログインユーザの情報を取得
-	        String userName = auth.getName();
-	        model.addAttribute("userName", userName);
+	    public String search(@ModelAttribute PortfolioSearchRequest portfolioSearchRequest, Model model) {
+		 	
 	        return "user/login";
 	    }
 

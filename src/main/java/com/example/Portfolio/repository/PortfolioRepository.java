@@ -12,6 +12,6 @@ import com.example.Portfolio.entity.users;
 @Repository
 public interface PortfolioRepository extends CrudRepository<users, Long> {
 	
-	Optional<users> findByEmail(String email); 
+	Optional<users> findByEmail(String  email); 
 
 }
