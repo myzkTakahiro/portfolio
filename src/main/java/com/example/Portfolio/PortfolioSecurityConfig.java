@@ -22,7 +22,6 @@ public class PortfolioSecurityConfig {
                 .requestMatchers("/"
                 		,"/add"
                 		, "/login"
-                		, "/top"
                 		, "/css/**"
                         , "/login?error"
                         , "/mysql-console/**")

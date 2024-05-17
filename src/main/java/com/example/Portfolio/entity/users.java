@@ -21,6 +21,14 @@ public class users implements Serializable {
 	private Date updated_at;
 	
 	private Date created_at;
+	
+	public String getName() {
+		return name;
+	}
+	
+	public void setName(String name) {
+		this.name = name;
+	}
 
 	public  String getEmail() {
         return email;
