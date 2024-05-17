@@ -25,5 +25,5 @@ public class PortfolioUserDetails extends User {
 	public String getName() {
 		return name;
 	}
-	
+
 }

@@ -51,11 +51,11 @@ public class PortfolioUserDetailsService implements UserDetailsService{
     // DBベースのユーザー検索
     users appUser = portfolioRepository.findByEmail(email)
             .orElseThrow(() -> new UsernameNotFoundException("User not found with email: " + email));
-    
+    Collection<? extends GrantedAuthority> authorities = Collections.singletonList(new SimpleGrantedAuthority("USER"));
     return User.builder()
             .username(appUser.getEmail()) // ユーザー名としてメールアドレスを使用
-            .password(appUser.getPassword())
-            .username(appUser.getName())// ハッシュ化されたパスワード
+            .password(appUser.getPassword()) // ハッシュ化されたパスワード
+            .username(appUser.getName())
             .roles("USER")
             .build();
     }

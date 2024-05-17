@@ -39,7 +39,7 @@
 						<input type="submit" value="編集する" class="button_blue_2">
 					</div>
 				</div>
-				<P sec:authentication="principal.getName" class="name"></P>
+				<P th:text="${username}" class="name"></P>
 			</div>
 		</div>
 		<footer>
