@@ -12,7 +12,7 @@ public class users implements Serializable {
 	
 	private Long id;
 	
-	private String name;
+	private  String name;
 	
 	protected  String email;
 	
@@ -22,7 +22,7 @@ public class users implements Serializable {
 	
 	private Date created_at;
 	
-	public String getName() {
+	public  String getName() {
 		return name;
 	}
 	
@@ -38,7 +38,7 @@ public class users implements Serializable {
         this.email = email;
     }
 
-    public  String getPassword() {
+    public String getPassword() {
         return password;
     }
 

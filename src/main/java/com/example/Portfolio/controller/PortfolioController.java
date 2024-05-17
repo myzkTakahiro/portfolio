@@ -63,7 +63,7 @@ public class PortfolioController {
 	    }
 
 	 @RequestMapping("/login")
-	    public String search(Model model) {
+	    public String search(@ModelAttribute PortfolioSearchRequest portfolioSearchRequest, Model model) {
 		 	Authentication auth = SecurityContextHolder.getContext().getAuthentication();
 	        //Principalからログインユーザの情報を取得
 	        String userName = auth.getName();
