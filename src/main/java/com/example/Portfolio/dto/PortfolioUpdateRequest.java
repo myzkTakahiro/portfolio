@@ -2,16 +2,20 @@ package com.example.Portfolio.dto;
 
 import java.io.Serializable;
 
-import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.Pattern;
+import jakarta.validation.constraints.Size;
 
 import lombok.Data;
-import lombok.EqualsAndHashCode;
 
 @Data
-@EqualsAndHashCode(callSuper = false)
-public class PortfolioUpdateRequest extends PortfolioAddRequest implements Serializable {
+public class PortfolioUpdateRequest implements Serializable {
 	
-	@NotNull
+	
+    
+    @Size(min = 50, max = 200)
+    private String self_introduction;
+    
     private Long id;
 
 }

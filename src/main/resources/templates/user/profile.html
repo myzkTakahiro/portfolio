@@ -19,7 +19,6 @@
 		<h2>自己紹介を編集する</h2>
 		<form th:action="@{/profile}" th:object="${PortfolioUpdateRequest}"
             th:method="post">
-            <input type="hidden" th:field="*{id}" />
 			<div class="form">
 				<div class="input-text">
 					<label class="text">自己紹介文</label>

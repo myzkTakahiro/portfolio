@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import com.example.Portfolio.dao.PortfolioMapper;
 import com.example.Portfolio.dto.PortfolioAddRequest;
 import com.example.Portfolio.dto.PortfolioUpdateRequest;
+import com.example.Portfolio.entity.users;
 
 
 
@@ -40,8 +41,12 @@ public class PortfolioService {
 
 	public void update(PortfolioUpdateRequest portfolioUpdateRequest) {
 		
-		PortfolioMapper.update(portfolioUpdateRequest);
+		portfolioMapper.update(portfolioUpdateRequest);
 	}
+	
+	public users findById(Long id) {
+        return portfolioMapper.findById(id);
+    }
 
 
 }

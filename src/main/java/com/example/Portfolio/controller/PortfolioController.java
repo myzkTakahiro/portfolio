@@ -86,7 +86,7 @@ public class PortfolioController {
 	        }
 	        // ユーザー情報の更新
 	        portfolioService.update(portfolioUpdateRequest);
-	        return "redirect:/user/top";
+	        return "redirect:/top";
 	    }
 
 	 @RequestMapping("/login")
