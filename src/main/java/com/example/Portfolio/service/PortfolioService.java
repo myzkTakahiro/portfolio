@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.example.Portfolio.dao.PortfolioMapper;
 import com.example.Portfolio.dto.PortfolioAddRequest;
+import com.example.Portfolio.dto.PortfolioUpdateRequest;
 
 
 
@@ -34,6 +35,13 @@ public class PortfolioService {
         portfolioAddRequest.setPassword(encodedPassword);
         portfolioMapper.save(portfolioAddRequest);
     }
+
+
+
+	public void update(PortfolioUpdateRequest portfolioUpdateRequest) {
+		
+		PortfolioMapper.update(portfolioUpdateRequest);
+	}
 
 
 }

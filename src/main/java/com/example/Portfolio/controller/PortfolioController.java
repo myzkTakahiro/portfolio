@@ -25,6 +25,7 @@ import org.springframework.web.servlet.ModelAndView;
 import com.example.Portfolio.dao.PortfolioUserDetails;
 import com.example.Portfolio.dto.PortfolioAddRequest;
 import com.example.Portfolio.dto.PortfolioSearchRequest;
+import com.example.Portfolio.dto.PortfolioUpdateRequest;
 import com.example.Portfolio.entity.users;
 import com.example.Portfolio.service.PortfolioService;
 
@@ -70,7 +71,22 @@ public class PortfolioController {
 	        }
 	        // ユーザー情報の登録
 	        portfolioService.save(portfolioRequest);
-	        return "redirect:/top";
+	        return "redirect:/login";
+	    }
+	 
+	 @RequestMapping(value = "/profile", method = RequestMethod.POST)
+	    public String update(@Validated @ModelAttribute PortfolioUpdateRequest portfolioUpdateRequest, BindingResult result, Model model) {
+	        if (result.hasErrors()) {
+	            List<String> errorList = new ArrayList<String>();
+	            for (ObjectError error : result.getAllErrors()) {
+	                errorList.add(error.getDefaultMessage());
+	            }
+	            model.addAttribute("validationError", errorList);
+	            return "user/profile";
+	        }
+	        // ユーザー情報の更新
+	        portfolioService.update(portfolioUpdateRequest);
+	        return "redirect:/user/top";
 	    }
 
 	 @RequestMapping("/login")

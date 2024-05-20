@@ -25,7 +25,10 @@ public interface PortfolioMapper {
 	void save(PortfolioAddRequest portfolioRequest);
 	
 	
-	void update(PortfolioUpdateRequest portfolioUpdateRequest);
+	static void update(PortfolioUpdateRequest portfolioUpdateRequest) {
+		
+		
+	}
 	
 
 	public users findByEmail(String email);
