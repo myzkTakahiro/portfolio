@@ -53,6 +53,7 @@ public class PortfolioController {
 	 
 	 @GetMapping(value = "/profile")
 	 	public String displayPro(Model model) {
+		 model.addAttribute("portfolioUpdateRequest", new PortfolioUpdateRequest());
 		 return "user/profile";
 	 }
 
