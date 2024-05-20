@@ -1,7 +1,5 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
-	  xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity6"
-      lang="ja">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8" http-equiv="Content-Type" />
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -28,7 +26,9 @@
 							<div class="self-title">自己紹介</div>
 						</div>
 						<div class="text"></div>
-						<input type="submit" value="自己紹介を編集する" class="button_blue_1">
+						<form th:action="@{/profile}">
+							<input type="submit" value="自己紹介を編集する" class="button_blue_1">
+						</form>
 					</div>
 				</div>
 				<div class="chart">
@@ -39,7 +39,7 @@
 						<input type="submit" value="編集する" class="button_blue_2">
 					</div>
 				</div>
-				<P th:text="${username}" class="name"></P>
+				<P th:text="${userName}" class="name"></P>
 			</div>
 		</div>
 		<footer>
