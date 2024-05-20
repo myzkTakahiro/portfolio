@@ -50,6 +50,10 @@ public class PortfolioController {
 		 return "user/top";
 	 }
 	 
+	 @GetMapping(value = "/profile")
+	 	public String displayPro(Model model) {
+		 return "user/profile";
+	 }
 
 	 
 	 
