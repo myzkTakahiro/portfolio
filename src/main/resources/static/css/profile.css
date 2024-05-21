@@ -159,7 +159,9 @@ textarea {
 	left: 319px;
 }
 
-
+.err {
+	color: red;
+}
 
 
 
