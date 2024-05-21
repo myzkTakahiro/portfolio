@@ -24,6 +24,14 @@ public class users implements Serializable {
 	
 	private Date created_at;
 	
+	public Long getId() {
+		return id;
+	}
+	
+	public void setId(Long id) {
+		this.id = id;
+	}
+	
 	public  String getName() {
 		return name;
 	}
@@ -48,4 +56,19 @@ public class users implements Serializable {
         this.password = password;
     }
 	
+    
+    public String getSelf_introduction() {
+    	return self_introduction;
+    }
+    
+    public void setSelf_introduction(String self_introduction) {
+    	this.self_introduction = self_introduction;
+    }
+    
+    
+    
+    
+    
+    
+    
 }

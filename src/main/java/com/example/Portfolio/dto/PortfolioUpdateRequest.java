@@ -17,5 +17,11 @@ public class PortfolioUpdateRequest implements Serializable {
     private String self_introduction;
     
     private Long id;
+    
+    private String name;
+    
+    private String email;
+    
+    private String password;
 
 }

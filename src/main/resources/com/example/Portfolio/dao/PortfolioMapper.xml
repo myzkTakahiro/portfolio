@@ -18,7 +18,7 @@
     <select id="findByEmail" resultType="com.example.Portfolio.entity.users"
                              parameterType="String">
         SELECT
-          email, password, name
+          email, password, name, id
         FROM
            users
         WHERE
@@ -38,7 +38,11 @@
 
     <!-- 更新 -->
     <update id="update" parameterType="String">
-        UPDATE users SET self_introduction = #{self_introduction}, updated_at = CURRENT_TIMESTAMP WHERE id = #{id}
+        UPDATE users 
+        SET 
+        	self_introduction = #{self_introduction}, updated_at = CURRENT_TIMESTAMP 
+        WHERE
+        	id = #{id}
     </update>
 
     

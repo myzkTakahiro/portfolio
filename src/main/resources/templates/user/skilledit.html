@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8" http-equiv="Content-Type" />
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<link th:href="@{/css/profile.css}" rel="stylesheet" type="text/css">
+
+<title>profile-edit</title>
+</head>
+<body>
+	<div class="container">
+		<header>
+			<h1 class="logo">My Portfolio</h1>
+			
+			<form th:action="@{/logout}" method="post">
+				<input type="submit" name="logout" value="ログアウト" class="button_white"/>
+			</form>
+		</header>
+		<main>
+			<div class="wrapper">
+				<div class="pull-down"></div>
+				<div class="category">
+					<div class="content">
+						<div class="titlebox">
+							<div class="title">バックエンド</div>
+							<input type="submit" value="項目を追加する" class="button_blue">
+						</div>
+						<div class="table-box">
+							<div class="table-header">
+								<div class="th"></div>
+							</div>
+							<div class="table-row">
+								<div class="tr">
+									<div class="time">
+										<div class="empty">
+											<div class="dense">
+												<div class="input"></div>
+											</div>
+										</div>
+									</div>
+									<div class="outline">
+										<input type="submit" value="学習時間を保存する" class="btn_save">
+									</div>
+									<div class="delete">
+										<input type="submit" value="削除" class="btn_delete">
+									</div>
+								</div>
+							</div>
+							<div class="table-row">
+								<div class="tr">
+									<div class="time">
+										<div class="empty">
+											<div class="dense">
+												<div class="input"></div>
+											</div>
+										</div>
+									</div>
+									<div class="outline">
+										<input type="submit" value="学習時間を保存する" class="btn_save">
+									</div>
+									<div class="delete">
+										<input type="submit" value="削除" class="btn_delete">
+									</div>
+								</div>
+							</div>
+							<div class="table-row">
+								<div class="tr">
+									<div class="time">
+										<div class="empty">
+											<div class="dense">
+												<div class="input"></div>
+											</div>
+										</div>
+									</div>
+									<div class="outline">
+										<input type="submit" value="学習時間を保存する" class="btn_save">
+									</div>
+									<div class="delete">
+										<input type="submit" value="削除" class="btn_delete">
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</main>
+	</div>
+</body>
+</html>
