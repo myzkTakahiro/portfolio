@@ -17,11 +17,13 @@ public class PortfolioUserDetails extends User {
 
 	private String name;
 	private Long id;
+	private String self_introduction;
 	
-	public PortfolioUserDetails(String email, String password,  Collection<? extends GrantedAuthority> authorities, String name, Long id) {
+	public PortfolioUserDetails(String email, String password,  Collection<? extends GrantedAuthority> authorities, String name, Long id, String self_introduction) {
 		super(email, password, authorities);
 		this.name = name;
 		this.id = id;
+		this.self_introduction = self_introduction;
 	
 	}
 	
@@ -33,7 +35,9 @@ public class PortfolioUserDetails extends User {
 		return id;
 	}
 	
-	
+	public String getSelfIntroduction() {
+		return self_introduction;
+	}
 
 
 }

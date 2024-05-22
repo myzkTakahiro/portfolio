@@ -18,7 +18,7 @@
     <select id="findByEmail" resultType="com.example.Portfolio.entity.users"
                              parameterType="String">
         SELECT
-          email, password, name, id
+          email, password, name, id, self_introduction
         FROM
            users
         WHERE

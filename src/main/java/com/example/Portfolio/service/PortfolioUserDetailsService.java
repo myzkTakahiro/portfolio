@@ -47,7 +47,7 @@ public class PortfolioUserDetailsService implements UserDetailsService{
     users appUser = portfolioRepository.findByEmail(email)
             .orElseThrow(() -> new UsernameNotFoundException("User not found with email: " + email));
     Collection<? extends GrantedAuthority> authorities = Collections.singletonList(new SimpleGrantedAuthority("USER"));
-    return new PortfolioUserDetails(appUser.getEmail(), appUser.getPassword(), authorities, appUser.getName(),appUser.getId());
+    return new PortfolioUserDetails(appUser.getEmail(), appUser.getPassword(), authorities, appUser.getName(),appUser.getId(), appUser.getSelf_introduction());
     }
  
     

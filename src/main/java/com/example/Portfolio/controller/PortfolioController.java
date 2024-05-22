@@ -46,6 +46,7 @@ public class PortfolioController {
 	 	public String displayTop(Authentication loginUser,Model model) {
 		 PortfolioUserDetails userDetails = (PortfolioUserDetails) loginUser.getPrincipal();
 	        model.addAttribute("userName", userDetails.getName());
+	        model.addAttribute("selfintroduction", userDetails.getSelfIntroduction());
 		 return "user/top";
 	 }
 	 
@@ -55,6 +56,11 @@ public class PortfolioController {
 		 model.addAttribute("portfolioUpdateRequest", new PortfolioUpdateRequest());
 		 model.addAttribute("id", userDetails.getId());
 		 return "user/profile";
+	 }
+	 
+	 @GetMapping("/skilledit")
+	 	public String dispalySkill(Model model) {
+		 return "user/skilledit";
 	 }
 
 	 @RequestMapping("/login")
@@ -94,6 +100,8 @@ public class PortfolioController {
 	        }
 	        // ユーザー情報の更新
 	        portfolioService.update(portfolioUpdateRequest);
+	        PortfolioUserDetails userDetails = (PortfolioUserDetails) loginUser.getPrincipal();
+	        model.addAttribute("selfintroduction", userDetails.getSelfIntroduction());
 	        return "redirect:/top";
 	    }
 

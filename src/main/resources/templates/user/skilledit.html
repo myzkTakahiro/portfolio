@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" http-equiv="Content-Type" />
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
-<link th:href="@{/css/profile.css}" rel="stylesheet" type="text/css">
+<link th:href="@{/css/skill.css}" rel="stylesheet" type="text/css">
 
 <title>profile-edit</title>
 </head>
@@ -18,7 +18,13 @@
 		</header>
 		<main>
 			<div class="wrapper">
-				<div class="pull-down"></div>
+				<div class="pull-down">
+					<select name="month">
+					<option value="9">9月</option>
+					<option value="8">8月</option>
+					<option value="7">7月</option>
+					</select>
+				</div>
 				<div class="category">
 					<div class="content">
 						<div class="titlebox">
@@ -31,10 +37,11 @@
 							</div>
 							<div class="table-row">
 								<div class="tr">
+									<div class="cell"></div>
 									<div class="time">
 										<div class="empty">
 											<div class="dense">
-												<div class="input"></div>
+												<input type="number" value="0" min="0" max="60" step="1">
 											</div>
 										</div>
 									</div>
@@ -48,10 +55,11 @@
 							</div>
 							<div class="table-row">
 								<div class="tr">
+									<div class="cell"></div>
 									<div class="time">
 										<div class="empty">
 											<div class="dense">
-												<div class="input"></div>
+												<input type="number" value="0" min="0" max="60" step="1">
 											</div>
 										</div>
 									</div>
@@ -65,10 +73,127 @@
 							</div>
 							<div class="table-row">
 								<div class="tr">
+									<div class="cell"></div>
 									<div class="time">
 										<div class="empty">
 											<div class="dense">
-												<div class="input"></div>
+												<input type="number" value="0" min="0" max="60" step="1">
+											</div>
+										</div>
+									</div>
+									<div class="outline">
+										<input type="submit" value="学習時間を保存する" class="btn_save">
+									</div>
+									<div class="delete">
+										<input type="submit" value="削除" class="btn_delete">
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="category">
+					<div class="content">
+						<div class="titlebox">
+							<div class="title">フロントエンド</div>
+							<input type="submit" value="項目を追加する" class="button_blue">
+						</div>
+						<div class="table-box">
+							<div class="table-header">
+								<div class="th"></div>
+							</div>
+							<div class="table-row">
+								<div class="tr">
+									<div class="cell"></div>
+									<div class="time">
+										<div class="empty">
+											<div class="dense">
+												<input type="number" value="0" min="0" max="60" step="1">
+											</div>
+										</div>
+									</div>
+									<div class="outline">
+										<input type="submit" value="学習時間を保存する" class="btn_save">
+									</div>
+									<div class="delete">
+										<input type="submit" value="削除" class="btn_delete">
+									</div>
+								</div>
+							</div>
+							<div class="table-row">
+								<div class="tr">
+									<div class="cell"></div>
+									<div class="time">
+										<div class="empty">
+											<div class="dense">
+												<input type="number" value="0" min="0" max="60" step="1">
+											</div>
+										</div>
+									</div>
+									<div class="outline">
+										<input type="submit" value="学習時間を保存する" class="btn_save">
+									</div>
+									<div class="delete">
+										<input type="submit" value="削除" class="btn_delete">
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="category">
+					<div class="content">
+						<div class="titlebox">
+							<div class="title">インフラ</div>
+							<input type="submit" value="項目を追加する" class="button_blue">
+						</div>
+						<div class="table-box">
+							<div class="table-header">
+								<div class="th"></div>
+							</div>
+							<div class="table-row">
+								<div class="tr">
+									<div class="cell"></div>
+									<div class="time">
+										<div class="empty">
+											<div class="dense">
+												<input type="number" value="0" min="0" max="60" step="1">
+											</div>
+										</div>
+									</div>
+									<div class="outline">
+										<input type="submit" value="学習時間を保存する" class="btn_save">
+									</div>
+									<div class="delete">
+										<input type="submit" value="削除" class="btn_delete">
+									</div>
+								</div>
+							</div>
+							<div class="table-row">
+								<div class="tr">
+									<div class="cell"></div>
+									<div class="time">
+										<div class="empty">
+											<div class="dense">
+												<input type="number" value="0" min="0" max="60" step="1">
+											</div>
+										</div>
+									</div>
+									<div class="outline">
+										<input type="submit" value="学習時間を保存する" class="btn_save">
+									</div>
+									<div class="delete">
+										<input type="submit" value="削除" class="btn_delete">
+									</div>
+								</div>
+							</div>
+							<div class="table-row">
+								<div class="tr">
+									<div class="cell"></div>
+									<div class="time">
+										<div class="empty">
+											<div class="dense">
+												<input type="number" value="0" min="0" max="60" step="1">
 											</div>
 										</div>
 									</div>
@@ -85,6 +210,9 @@
 				</div>
 			</div>
 		</main>
+		<footer>
+			<p class="footerlogo">portfolio site</p>
+		</footer>
 	</div>
 </body>
 </html>
