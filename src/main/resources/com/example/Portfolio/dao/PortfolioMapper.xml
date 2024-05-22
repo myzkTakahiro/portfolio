@@ -37,7 +37,7 @@
     </insert>
 
     <!-- 更新 -->
-    <update id="update" parameterType="String">
+    <update id="update">
         UPDATE users 
         SET 
         	self_introduction = #{self_introduction}, updated_at = CURRENT_TIMESTAMP 

@@ -2,11 +2,6 @@ package com.example.Portfolio.service;
 
 import java.util.Collection;
 import java.util.Collections;
-import java.util.List;
-import java.util.stream.Collectors;
-import java.util.stream.StreamSupport;
-
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.User;
@@ -25,8 +20,8 @@ public class PortfolioUserDetailsService implements UserDetailsService{
 
   private final PortfolioRepository portfolioRepository;
   private final PasswordEncoder passwordEncoder;
-  
-  @Autowired
+ 
+ 
   public PortfolioUserDetailsService(PortfolioRepository portfolioRepository, PasswordEncoder passwordEncoder) {
       this.portfolioRepository = portfolioRepository;
       this.passwordEncoder = passwordEncoder; // コンストラクタを通して注入
@@ -52,12 +47,7 @@ public class PortfolioUserDetailsService implements UserDetailsService{
     users appUser = portfolioRepository.findByEmail(email)
             .orElseThrow(() -> new UsernameNotFoundException("User not found with email: " + email));
     Collection<? extends GrantedAuthority> authorities = Collections.singletonList(new SimpleGrantedAuthority("USER"));
-    return User.builder()
-            .username(appUser.getEmail()) // ユーザー名としてメールアドレスを使用
-            .password(appUser.getPassword()) // ハッシュ化されたパスワード
-            .username(appUser.getName())
-            .roles("USER")
-            .build();
+    return new PortfolioUserDetails(appUser.getEmail(), appUser.getPassword(), authorities, appUser.getName(),appUser.getId());
     }
  
     

@@ -43,21 +43,26 @@ public class PortfolioController {
 	    }
 	
 	 @GetMapping(value = "/top")
-	 	public String displayTop(Model model) {
-		 Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-	        //Principalからログインユーザの情報を取得
-	        String userName = auth.getName();
-	        model.addAttribute("userName", userName);
+	 	public String displayTop(Authentication loginUser,Model model) {
+		 PortfolioUserDetails userDetails = (PortfolioUserDetails) loginUser.getPrincipal();
+	        model.addAttribute("userName", userDetails.getName());
 		 return "user/top";
 	 }
 	 
 	 @GetMapping(value = "/profile")
-	 	public String displayPro(Model model) {
+	 	public String displayPro(Authentication loginUser, Model model) {
+		 PortfolioUserDetails userDetails = (PortfolioUserDetails) loginUser.getPrincipal();
 		 model.addAttribute("portfolioUpdateRequest", new PortfolioUpdateRequest());
+		 model.addAttribute("id", userDetails.getId());
 		 return "user/profile";
 	 }
 
-	 
+	 @RequestMapping("/login")
+	    public String search(@ModelAttribute PortfolioSearchRequest portfolioSearchRequest, Model model) {
+		 	
+	        return "user/login";
+	    }
+
 	 
 	 @RequestMapping(value = "/add", method = RequestMethod.POST)
 	    public String create(@Validated @ModelAttribute PortfolioAddRequest portfolioRequest, BindingResult result, Model model) {
@@ -76,13 +81,15 @@ public class PortfolioController {
 	    }
 	 
 	 @RequestMapping(value = "/profile", method = RequestMethod.POST)
-	    public String update(@Validated @ModelAttribute PortfolioUpdateRequest portfolioUpdateRequest, BindingResult result, Model model) {
+	    public String update(@Validated @ModelAttribute PortfolioUpdateRequest portfolioUpdateRequest, BindingResult result, Authentication loginUser, Model model) {
 	        if (result.hasErrors()) {
 	            List<String> errorList = new ArrayList<String>();
 	            for (ObjectError error : result.getAllErrors()) {
 	                errorList.add(error.getDefaultMessage());
 	            }
 	            model.addAttribute("validationError", errorList);
+	            PortfolioUserDetails userDetails = (PortfolioUserDetails) loginUser.getPrincipal();
+	            model.addAttribute("id", userDetails.getId());
 	            return "user/profile";
 	        }
 	        // ユーザー情報の更新
@@ -90,11 +97,7 @@ public class PortfolioController {
 	        return "redirect:/top";
 	    }
 
-	 @RequestMapping("/login")
-	    public String search(@ModelAttribute PortfolioSearchRequest portfolioSearchRequest, Model model) {
-		 	
-	        return "user/login";
-	    }
+	 
 
 
 }

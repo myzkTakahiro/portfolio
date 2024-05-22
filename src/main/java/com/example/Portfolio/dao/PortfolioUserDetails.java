@@ -16,14 +16,24 @@ import lombok.EqualsAndHashCode;
 public class PortfolioUserDetails extends User {
 
 	private String name;
+	private Long id;
 	
-	public PortfolioUserDetails(String email, String password,  Collection<? extends GrantedAuthority> authorities, String name) {
+	public PortfolioUserDetails(String email, String password,  Collection<? extends GrantedAuthority> authorities, String name, Long id) {
 		super(email, password, authorities);
 		this.name = name;
+		this.id = id;
+	
 	}
 	
 	public String getName() {
 		return name;
 	}
+	
+	public Long getId() {
+		return id;
+	}
+	
+	
+
 
 }

@@ -13,15 +13,11 @@ import com.example.Portfolio.entity.users;
 @Mapper
 public interface PortfolioMapper {
 	
-	
-	
 	List<users> findAll();
 	
 	users findById(Long id);
 	
-	
 	void save(PortfolioAddRequest portfolioRequest);
-	
 	
 	void update(PortfolioUpdateRequest portfolioUpdateRequest);
 

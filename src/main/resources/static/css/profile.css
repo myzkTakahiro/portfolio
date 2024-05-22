@@ -94,6 +94,10 @@ h2 {
 textarea {
 	width: 480px;
 	height: 95px;
+	outline: none;
+	border-style: none none solid none;
+	border-width: 1px;
+	border-color:#000000;
 }
 
 .text {
@@ -161,6 +165,13 @@ textarea {
 
 .err {
 	color: red;
+	width: 400px;
+	height: 20px;
+	font-family: Roboto;
+	font-weight: 400;
+	font-size: 10px;
+	line-height: 20px;
+	letter-spacing: 0.4px;
 }
 
 
