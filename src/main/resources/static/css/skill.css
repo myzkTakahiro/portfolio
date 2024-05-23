@@ -80,12 +80,6 @@ main {
 .pull-down {
 	width: 94px;
 	height: 44px;
-	border-radius: 4px;
-	padding: 8px 16px;
-	font-size: 24px;
-	font-weight: 700px;
-	font-family: Roboto;
-	line-height: 28.13px;
 }
 
 .category {
@@ -117,9 +111,8 @@ main {
 	font-weight: 700;
 	font-size: 24px;
 	line-height: 28.13px;
-	border-style: none none solid none;
-	border-width: 1px;
-	border-color:#000000;
+	border-bottom: 2px solid rgba(0, 0, 0, 0.5);
+	color: rgba(0, 0, 0, 0.75);
 }
 
 .button_blue {
@@ -148,11 +141,13 @@ main {
 .table-header {
 	width: 880px;
 	height: 57px;
+	border-bottom: 1px solid rgba(224, 224, 224, 1);
 }
 
 .table-row {
 	width: 880px;
 	height: 73px;
+	border-bottom: 1px solid rgba(224, 224, 224, 1);
 }
 
 .tr {
@@ -201,6 +196,7 @@ main {
 .btn_delete {
 	width: 88px;
 	height: 32px;
+	border: none;
 	border-radius: 4px;
 	background-color: rgba(238, 105, 105, 1);
 	color: white;
@@ -211,7 +207,15 @@ main {
 	padding: 8px 16px;
 }
 
-
+.btn_pull {
+	border: 1px solid rgba(221, 221, 221, 1);
+	border-radius: 4px;
+	padding: 8px 16px;
+	font-size: 24px;
+	font-weight: 700px;
+	font-family: Roboto;
+	line-height: 28.13px;
+}
 
 
 
