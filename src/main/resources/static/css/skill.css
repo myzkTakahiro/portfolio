@@ -77,12 +77,24 @@ main {
 	margin: 0 auto;
 }
 
+.pull-down {
+	width: 94px;
+	height: 44px;
+	border-radius: 4px;
+	padding: 8px 16px;
+	font-size: 24px;
+	font-weight: 700px;
+	font-family: Roboto;
+	line-height: 28.13px;
+}
+
 .category {
 	width: 960px;
 	height: 436px;
+	border: 1px solid rgba(0, 0, 0, 0.5);
 	border-radius: 8px;
-	border-width: 1px;
 	padding: 40px;
+	margin-top: 40px;
 }
 
 .content {
@@ -116,6 +128,10 @@ main {
 	height: 48px;
 	border-radius: 4px;
 	padding: 16px 40px;
+	font-family: Roboto;
+	font-weight: 400;
+	font-size: 14px;
+	line-height: 16.41px;
 	color: white;
 	background-color: #1B5678;
 	text-align: center;
@@ -125,7 +141,8 @@ main {
 	width: 880px;
 	height: 276px;
 	border-radius: 4px;
-	box-shadow: 0px 2px;
+	box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.2);
+	margin-top: 36px;
 }
 
 .table-header {
@@ -167,9 +184,32 @@ main {
 	padding: 16px 40px;
 }
 
+.btn_save {
+	width: 158px;
+	height: 32px;
+	border-radius: 4px;
+	border: 1px solid rgba(27, 86, 120, 1);
+	color: rgba(27, 86, 120, 1);
+	background-color: white;
+	font-family: Roboto;
+	font-weight: 400px;
+	font-size: 14px;
+	line-height: 16.41px;
+	padding: 8px 16px;
+}
 
-
-
+.btn_delete {
+	width: 88px;
+	height: 32px;
+	border-radius: 4px;
+	background-color: rgba(238, 105, 105, 1);
+	color: white;
+	font-family: Roboto;
+	font-weight: 400px;
+	font-size: 12px;
+	line-height: 16.41px;
+	padding: 8px 16px;
+}
 
 
 

@@ -6,9 +6,11 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -28,6 +30,7 @@ import com.example.Portfolio.dto.PortfolioSearchRequest;
 import com.example.Portfolio.dto.PortfolioUpdateRequest;
 import com.example.Portfolio.entity.users;
 import com.example.Portfolio.service.PortfolioService;
+import com.example.Portfolio.service.PortfolioUserDetailsService;
 
 @RequestMapping("/")
 @Controller
@@ -35,6 +38,9 @@ public class PortfolioController {
 	
 	@Autowired
     private PortfolioService portfolioService;
+	
+	@Autowired
+	private UserDetailsService userDetailsService;
 	
 	@GetMapping(value = "/add")
 	    public String displayAdd(Model model) {
@@ -44,7 +50,10 @@ public class PortfolioController {
 	
 	 @GetMapping(value = "/top")
 	 	public String displayTop(Authentication loginUser,Model model) {
+		 model.addAttribute("portfolioAddRequest", new PortfolioAddRequest());
+	        model.addAttribute("email", loginUser.getName());
 		 PortfolioUserDetails userDetails = (PortfolioUserDetails) loginUser.getPrincipal();
+		 	model.addAttribute("portfolioAddRequest", new PortfolioAddRequest());
 	        model.addAttribute("userName", userDetails.getName());
 	        model.addAttribute("selfintroduction", userDetails.getSelfIntroduction());
 		 return "user/top";
@@ -87,7 +96,7 @@ public class PortfolioController {
 	    }
 	 
 	 @RequestMapping(value = "/profile", method = RequestMethod.POST)
-	    public String update(@Validated @ModelAttribute PortfolioUpdateRequest portfolioUpdateRequest, BindingResult result, Authentication loginUser, Model model) {
+	    public String update(@Validated @ModelAttribute PortfolioUpdateRequest portfolioUpdateRequest, BindingResult result, Authentication loginUser, Model model, Authentication authentication) {
 	        if (result.hasErrors()) {
 	            List<String> errorList = new ArrayList<String>();
 	            for (ObjectError error : result.getAllErrors()) {
@@ -100,8 +109,15 @@ public class PortfolioController {
 	        }
 	        // ユーザー情報の更新
 	        portfolioService.update(portfolioUpdateRequest);
-	        PortfolioUserDetails userDetails = (PortfolioUserDetails) loginUser.getPrincipal();
-	        model.addAttribute("selfintroduction", userDetails.getSelfIntroduction());
+	        
+			
+			PortfolioUserDetails updatedUserDetails = (PortfolioUserDetails) userDetailsService.loadUserByUsername(authentication.getName());
+	         
+	         //セキュリティコンテキストを更新
+	         UsernamePasswordAuthenticationToken authToken = new UsernamePasswordAuthenticationToken(
+	                 updatedUserDetails, authentication.getCredentials(), updatedUserDetails.getAuthorities());
+	         SecurityContextHolder.getContext().setAuthentication(authToken);
+	        
 	        return "redirect:/top";
 	    }
 

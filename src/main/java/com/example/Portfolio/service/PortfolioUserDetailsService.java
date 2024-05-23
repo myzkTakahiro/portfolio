@@ -2,6 +2,8 @@ package com.example.Portfolio.service;
 
 import java.util.Collection;
 import java.util.Collections;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.User;
@@ -18,10 +20,13 @@ import com.example.Portfolio.repository.PortfolioRepository;
 @Service
 public class PortfolioUserDetailsService implements UserDetailsService{
 
+
+  @Autowired
   private final PortfolioRepository portfolioRepository;
   private final PasswordEncoder passwordEncoder;
- 
- 
+  
+  
+  
   public PortfolioUserDetailsService(PortfolioRepository portfolioRepository, PasswordEncoder passwordEncoder) {
       this.portfolioRepository = portfolioRepository;
       this.passwordEncoder = passwordEncoder; // コンストラクタを通して注入
@@ -30,7 +35,7 @@ public class PortfolioUserDetailsService implements UserDetailsService{
   
   
   @Override
-  public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
+  public  UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
 	  
 	  
 	  
