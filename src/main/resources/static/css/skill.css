@@ -150,6 +150,33 @@ main {
 	border-bottom: 1px solid rgba(224, 224, 224, 1);
 }
 
+.th {
+	width: 880px;
+	height: 56px;
+	display: flex;
+}
+
+.text-1 {
+	width: 240px;
+	height: 56px;
+	padding: 16px 16px 16px 40px;
+}
+
+.text-2 {
+	width: 240px;
+	height: 56px;
+	padding: 16px;
+}
+
+.tx {
+	font-family: Roboto;
+	font-weight: 500;
+	font-size: 14px;
+	line-height: 24px;
+	letter-spacing: 0.15px;
+	color: rgba(0, 0, 0, 0.87);
+}
+
 .tr {
 	width: 880px;
 	height: 73px;

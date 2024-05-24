@@ -6,6 +6,7 @@ import org.apache.ibatis.annotations.Mapper;
 
 import com.example.Portfolio.dto.PortfolioAddRequest;
 import com.example.Portfolio.dto.PortfolioUpdateRequest;
+import com.example.Portfolio.entity.LearningData;
 import com.example.Portfolio.entity.users;
 
 
@@ -22,6 +23,12 @@ public interface PortfolioMapper {
 	void update(PortfolioUpdateRequest portfolioUpdateRequest);
 
 	public users findByEmail(String email);
+	
+	List<LearningData> Allfind();
+	
+	LearningData Idfind(Long id);
+	
+	public LearningData findByName(String nmae);
 
 }
 

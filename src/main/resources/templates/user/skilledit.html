@@ -33,47 +33,22 @@
 						</div>
 						<div class="table-box">
 							<div class="table-header">
-								<div class="th"></div>
-							</div>
-							<div class="table-row">
-								<div class="tr">
-									<div class="cell"></div>
-									<div class="time">
-										<div class="empty">
-											<div class="dense">
-												<input type="number" value="0" min="0" max="60" step="1">
-											</div>
-										</div>
+								<div class="th">
+									<div class="text-1">
+										<p class="tx">項目名</p>
 									</div>
-									<div class="outline">
-										<input type="submit" value="学習時間を保存する" class="btn_save">
+									<div class="text-2">
+										<p class="tx">学習時間</p>
 									</div>
-									<div class="delete">
-										<input type="submit" value="削除する" class="btn_delete">
-									</div>
+									<div class="outline"></div>
+									<div class="delete"></div>
 								</div>
 							</div>
 							<div class="table-row">
-								<div class="tr">
-									<div class="cell"></div>
-									<div class="time">
-										<div class="empty">
-											<div class="dense">
-												<input type="number" value="0" min="0" max="60" step="1">
-											</div>
-										</div>
+								<div class="tr" th:each="user : ${userlist}">
+									<div class="cell">
+										<div th:text="*{name}"></div>
 									</div>
-									<div class="outline">
-										<input type="submit" value="学習時間を保存する" class="btn_save">
-									</div>
-									<div class="delete">
-										<input type="submit" value="削除する" class="btn_delete">
-									</div>
-								</div>
-							</div>
-							<div class="table-row">
-								<div class="tr">
-									<div class="cell"></div>
 									<div class="time">
 										<div class="empty">
 											<div class="dense">
@@ -100,28 +75,19 @@
 						</div>
 						<div class="table-box">
 							<div class="table-header">
-								<div class="th"></div>
-							</div>
-							<div class="table-row">
-								<div class="tr">
-									<div class="cell"></div>
-									<div class="time">
-										<div class="empty">
-											<div class="dense">
-												<input type="number" value="0" min="0" max="60" step="1">
-											</div>
-										</div>
+								<div class="th">
+									<div class="text-1">
+										<p class="tx">項目名</p>
 									</div>
-									<div class="outline">
-										<input type="submit" value="学習時間を保存する" class="btn_save">
+									<div class="text-2">
+										<p class="tx">学習時間</p>
 									</div>
-									<div class="delete">
-										<input type="submit" value="削除する" class="btn_delete">
-									</div>
+									<div class="outline"></div>
+									<div class="delete"></div>
 								</div>
 							</div>
 							<div class="table-row">
-								<div class="tr">
+								<div class="tr" th:each="user : ${userlist}">
 									<div class="cell"></div>
 									<div class="time">
 										<div class="empty">
@@ -149,46 +115,19 @@
 						</div>
 						<div class="table-box">
 							<div class="table-header">
-								<div class="th"></div>
-							</div>
-							<div class="table-row">
-								<div class="tr">
-									<div class="cell"></div>
-									<div class="time">
-										<div class="empty">
-											<div class="dense">
-												<input type="number" value="0" min="0" max="60" step="1">
-											</div>
-										</div>
+								<div class="th">
+									<div class="text-1">
+										<p class="tx">項目名</p>
 									</div>
-									<div class="outline">
-										<input type="submit" value="学習時間を保存する" class="btn_save">
+									<div class="text-2">
+										<p class="tx">学習時間</p>
 									</div>
-									<div class="delete">
-										<input type="submit" value="削除する" class="btn_delete">
-									</div>
+									<div class="outline"></div>
+									<div class="delete"></div>
 								</div>
 							</div>
 							<div class="table-row">
-								<div class="tr">
-									<div class="cell"></div>
-									<div class="time">
-										<div class="empty">
-											<div class="dense">
-												<input type="number" value="0" min="0" max="60" step="1">
-											</div>
-										</div>
-									</div>
-									<div class="outline">
-										<input type="submit" value="学習時間を保存する" class="btn_save">
-									</div>
-									<div class="delete">
-										<input type="submit" value="削除する" class="btn_delete">
-									</div>
-								</div>
-							</div>
-							<div class="table-row">
-								<div class="tr">
+								<div class="tr" th:each="user : ${userlist}">
 									<div class="cell"></div>
 									<div class="time">
 										<div class="empty">

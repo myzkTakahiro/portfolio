@@ -28,7 +28,10 @@ import com.example.Portfolio.dao.PortfolioUserDetails;
 import com.example.Portfolio.dto.PortfolioAddRequest;
 import com.example.Portfolio.dto.PortfolioSearchRequest;
 import com.example.Portfolio.dto.PortfolioUpdateRequest;
+import com.example.Portfolio.dto.SkilleditRequest;
+import com.example.Portfolio.entity.LearningData;
 import com.example.Portfolio.entity.users;
+import com.example.Portfolio.service.LearningDataService;
 import com.example.Portfolio.service.PortfolioService;
 import com.example.Portfolio.service.PortfolioUserDetailsService;
 
@@ -41,6 +44,9 @@ public class PortfolioController {
 	
 	@Autowired
 	private UserDetailsService userDetailsService;
+	
+	@Autowired
+	private LearningDataService learningdataService;
 	
 	@GetMapping(value = "/add")
 	    public String displayAdd(Model model) {
@@ -68,13 +74,16 @@ public class PortfolioController {
 	 }
 	 
 	 @GetMapping("/skilledit")
-	 	public String dispalySkill(Model model) {
+		 public String displayList(Model model) {
+		        List<LearningData> userList = learningdataService.Allfind();
+		        model.addAttribute("userlist", userList);
+		        model.addAttribute("userSearchRequest", new SkilleditRequest());
 		 return "user/skilledit";
 	 }
 
 	 @RequestMapping("/login")
 	    public String search(@ModelAttribute PortfolioSearchRequest portfolioSearchRequest, Model model) {
-		 	
+		 
 	        return "user/login";
 	    }
 

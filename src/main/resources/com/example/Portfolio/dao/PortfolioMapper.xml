@@ -14,6 +14,25 @@
         SELECT * FROM users WHERE id=#{id} AND delete_date IS NULL
     </select>
     
+    <select id="Allfind" resultType="com.example.Portfolio.entity.LearningData">
+    	SELECT * FROM learning_data 
+    </select>
+    
+    <select id="Idfind" resultType="com.example.Portfolio.entity.LearningData">
+    	SELECT * FROM learning_data WHERE id=#{id} AND delete_date IS NULL
+    </select>
+    
+    <select id="findByName" resultType="com.example.Portfolio.entity.LearningData"
+                             parameterType="String">
+        SELECT
+          name, id
+        FROM
+           learning_data
+        WHERE
+           id = #{id}
+
+    </select>
+    
 
     <select id="findByEmail" resultType="com.example.Portfolio.entity.users"
                              parameterType="String">
@@ -47,6 +66,5 @@
 
     
 </mapper>
-
 
 
