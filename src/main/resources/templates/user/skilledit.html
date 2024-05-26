@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8" http-equiv="Content-Type" />
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<link th:href="@{/css/skill.css}" rel="stylesheet" type="text/css">
+
+<title>profile-edit</title>
+</head>
+<body>
+	<div class="container">
+		<header>
+			<h1 class="logo">My Portfolio</h1>
+			
+			<form th:action="@{/logout}" method="post">
+				<input type="submit" name="logout" value="ログアウト" class="button_white"/>
+			</form>
+		</header>
+		<main>
+			<div class="wrapper">
+				<div class="pull-down">
+					<select name="month" class="btn_pull">
+					<option value="9">9月</option>
+					<option value="8">8月</option>
+					<option value="7">7月</option>
+					</select>
+				</div>
+				<div class="category">
+					<div class="content">
+						<div class="titlebox">
+							<div class="title">バックエンド</div>
+							<input type="submit" value="項目を追加する" class="button_blue">
+						</div>
+						<div class="table-box">
+							<div class="table-header">
+								<div class="th">
+									<div class="text-1">
+										<p class="tx">項目名</p>
+									</div>
+									<div class="text-2">
+										<p class="tx">学習時間</p>
+									</div>
+									<div class="outline"></div>
+									<div class="delete"></div>
+								</div>
+							</div>
+							<div class="table-row">
+								<div class="tr" th:each="learn : ${userlist}" th:if="${learn.category_id eq 1}">
+									<div class="cell">
+										<p th:text="*{name}"></p>
+									</div>
+									<div class="time">
+										<div class="empty">
+											<div class="dense">
+												<input type="number" value="0" min="0" max="60" step="1">
+											</div>
+										</div>
+									</div>
+									<div class="outline">
+										<input type="submit" value="学習時間を保存する" class="btn_save">
+									</div>
+									<div class="delete">
+										<input type="submit" value="削除する" class="btn_delete">
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="category">
+					<div class="content">
+						<div class="titlebox">
+							<div class="title">フロントエンド</div>
+							<input type="submit" value="項目を追加する" class="button_blue">
+						</div>
+						<div class="table-box">
+							<div class="table-header">
+								<div class="th">
+									<div class="text-1">
+										<p class="tx">項目名</p>
+									</div>
+									<div class="text-2">
+										<p class="tx">学習時間</p>
+									</div>
+									<div class="outline"></div>
+									<div class="delete"></div>
+								</div>
+							</div>
+							<div class="table-row">
+								<div class="tr" th:each="user : ${userlist}" th:object="${user}">
+									<div class="cell"></div>
+									<div class="time">
+										<div class="empty">
+											<div class="dense">
+												<input type="number" value="0" min="0" max="60" step="1">
+											</div>
+										</div>
+									</div>
+									<div class="outline">
+										<input type="submit" value="学習時間を保存する" class="btn_save">
+									</div>
+									<div class="delete">
+										<input type="submit" value="削除する" class="btn_delete">
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="category">
+					<div class="content">
+						<div class="titlebox">
+							<div class="title">インフラ</div>
+							<input type="submit" value="項目を追加する" class="button_blue">
+						</div>
+						<div class="table-box">
+							<div class="table-header">
+								<div class="th">
+									<div class="text-1">
+										<p class="tx">項目名</p>
+									</div>
+									<div class="text-2">
+										<p class="tx">学習時間</p>
+									</div>
+									<div class="outline"></div>
+									<div class="delete"></div>
+								</div>
+							</div>
+							<div class="table-row">
+								<div class="tr" th:each="user : ${userlist}" th:object="${user}">
+									<div class="cell"></div>
+									<div class="time">
+										<div class="empty">
+											<div class="dense">
+												<input type="number" value="0" min="0" max="60" step="1">
+											</div>
+										</div>
+									</div>
+									<div class="outline">
+										<input type="submit" value="学習時間を保存する" class="btn_save">
+									</div>
+									<div class="delete">
+										<input type="submit" value="削除する" class="btn_delete">
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</main>
+		<footer>
+			<p class="footerlogo">portfolio site</p>
+		</footer>
+	</div>
+</body>
+</html>

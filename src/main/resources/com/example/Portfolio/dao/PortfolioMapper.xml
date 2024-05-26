@@ -14,11 +14,30 @@
         SELECT * FROM users WHERE id=#{id} AND delete_date IS NULL
     </select>
     
+    <select id="Allfind" resultType="com.example.Portfolio.entity.LearningData">
+    	SELECT * FROM learning_data 
+    </select>
+    
+    <select id="Idfind" resultType="com.example.Portfolio.entity.LearningData">
+    	SELECT * FROM learning_data WHERE id=#{id} AND delete_date IS NULL
+    </select>
+    
+    <select id="findByName" resultType="com.example.Portfolio.entity.LearningData"
+                             parameterType="String">
+        SELECT
+          name, id, category_id
+        FROM
+           learning_data
+        WHERE
+           id = #{id}
+
+    </select>
+    
 
     <select id="findByEmail" resultType="com.example.Portfolio.entity.users"
                              parameterType="String">
         SELECT
-          email, password, name
+          email, password, name, id, self_introduction
         FROM
            users
         WHERE
@@ -31,18 +50,21 @@
     <!-- 新規登録 -->
     <insert id="save">
         INSERT INTO users
-            (name, email, password, updated_at, created_at)
+            (name, email, password, self_introduction, updated_at, created_at)
         VALUES
-            (#{name}, #{email}, #{password}, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP)
+            (#{name}, #{email}, #{password}, #{self_introduction}, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP)
     </insert>
 
     <!-- 更新 -->
     <update id="update">
-        UPDATE users SET name = #{name}, email = #{email}, password = #{password}, updated_at = CURRENT_TIMESTAMP)
+        UPDATE users 
+        SET 
+        	self_introduction = #{self_introduction}, updated_at = CURRENT_TIMESTAMP 
+        WHERE
+        	id = #{id}
     </update>
 
     
 </mapper>
-
 
 

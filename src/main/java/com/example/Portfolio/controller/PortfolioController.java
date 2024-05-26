@@ -6,9 +6,11 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -25,8 +27,13 @@ import org.springframework.web.servlet.ModelAndView;
 import com.example.Portfolio.dao.PortfolioUserDetails;
 import com.example.Portfolio.dto.PortfolioAddRequest;
 import com.example.Portfolio.dto.PortfolioSearchRequest;
+import com.example.Portfolio.dto.PortfolioUpdateRequest;
+import com.example.Portfolio.dto.SkilleditRequest;
+import com.example.Portfolio.entity.LearningData;
 import com.example.Portfolio.entity.users;
+import com.example.Portfolio.service.LearningDataService;
 import com.example.Portfolio.service.PortfolioService;
+import com.example.Portfolio.service.PortfolioUserDetailsService;
 
 @RequestMapping("/")
 @Controller
@@ -35,6 +42,12 @@ public class PortfolioController {
 	@Autowired
     private PortfolioService portfolioService;
 	
+	@Autowired
+	private UserDetailsService userDetailsService;
+	
+	@Autowired
+	private LearningDataService learningdataService;
+	
 	@GetMapping(value = "/add")
 	    public String displayAdd(Model model) {
 	        model.addAttribute("portfolioAddRequest", new PortfolioAddRequest());
@@ -42,20 +55,38 @@ public class PortfolioController {
 	    }
 	
 	 @GetMapping(value = "/top")
-	 	public String displayTop(Model model) {
-		 Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-	        //Principalからログインユーザの情報を取得
-	        String userName = auth.getName();
-	        model.addAttribute("userName", userName);
+	 	public String displayTop(Authentication loginUser,Model model) {
+		 model.addAttribute("portfolioAddRequest", new PortfolioAddRequest());
+	        model.addAttribute("email", loginUser.getName());
+		 PortfolioUserDetails userDetails = (PortfolioUserDetails) loginUser.getPrincipal();
+		 	model.addAttribute("portfolioAddRequest", new PortfolioAddRequest());
+	        model.addAttribute("userName", userDetails.getName());
+	        model.addAttribute("selfintroduction", userDetails.getSelfIntroduction());
 		 return "user/top";
 	 }
 	 
 	 @GetMapping(value = "/profile")
-	 	public String displayPro(Model model) {
+	 	public String displayPro(Authentication loginUser, Model model) {
+		 PortfolioUserDetails userDetails = (PortfolioUserDetails) loginUser.getPrincipal();
+		 model.addAttribute("portfolioUpdateRequest", new PortfolioUpdateRequest());
+		 model.addAttribute("id", userDetails.getId());
 		 return "user/profile";
 	 }
-
 	 
+	 @GetMapping("/skilledit")
+		 public String displayList(Model model) {
+		        List<LearningData> userList = learningdataService.Allfind();
+		        model.addAttribute("userlist", userList);
+		        model.addAttribute("userSearchRequest", new SkilleditRequest());
+		 return "user/skilledit";
+	 }
+
+	 @RequestMapping("/login")
+	    public String search(@ModelAttribute PortfolioSearchRequest portfolioSearchRequest, Model model) {
+		 
+	        return "user/login";
+	    }
+
 	 
 	 @RequestMapping(value = "/add", method = RequestMethod.POST)
 	    public String create(@Validated @ModelAttribute PortfolioAddRequest portfolioRequest, BindingResult result, Model model) {
@@ -70,14 +101,36 @@ public class PortfolioController {
 	        }
 	        // ユーザー情報の登録
 	        portfolioService.save(portfolioRequest);
+	        return "redirect:/login";
+	    }
+	 
+	 @RequestMapping(value = "/profile", method = RequestMethod.POST)
+	    public String update(@Validated @ModelAttribute PortfolioUpdateRequest portfolioUpdateRequest, BindingResult result, Authentication loginUser, Model model, Authentication authentication) {
+	        if (result.hasErrors()) {
+	            List<String> errorList = new ArrayList<String>();
+	            for (ObjectError error : result.getAllErrors()) {
+	                errorList.add(error.getDefaultMessage());
+	            }
+	            model.addAttribute("validationError", errorList);
+	            PortfolioUserDetails userDetails = (PortfolioUserDetails) loginUser.getPrincipal();
+	            model.addAttribute("id", userDetails.getId());
+	            return "user/profile";
+	        }
+	        // ユーザー情報の更新
+	        portfolioService.update(portfolioUpdateRequest);
+	        
+			
+			PortfolioUserDetails updatedUserDetails = (PortfolioUserDetails) userDetailsService.loadUserByUsername(authentication.getName());
+	         
+	         //セキュリティコンテキストを更新
+	         UsernamePasswordAuthenticationToken authToken = new UsernamePasswordAuthenticationToken(
+	                 updatedUserDetails, authentication.getCredentials(), updatedUserDetails.getAuthorities());
+	         SecurityContextHolder.getContext().setAuthentication(authToken);
+	        
 	        return "redirect:/top";
 	    }
 
-	 @RequestMapping("/login")
-	    public String search(@ModelAttribute PortfolioSearchRequest portfolioSearchRequest, Model model) {
-		 	
-	        return "user/login";
-	    }
+	 
 
 
 }

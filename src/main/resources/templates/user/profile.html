@@ -17,17 +17,23 @@
 			</form>
 		</header>
 		<h2>自己紹介を編集する</h2>
-		<div class="form">
-			<div class="input-text">
-				<label class="text">自己紹介文</label>
-				<textarea name="text"></textarea>
+		<form th:action="@{/profile}" th:object="${portfolioUpdateRequest}" th:method="post">
+		<input type="hidden" name="id" th:value="${id}">
+			<div class="form">
+				<div class="input-text">
+					<label class="text">自己紹介文</label>
+					<textarea name="text" th:field="*{self_introduction}" ></textarea>
+					<div th:if="${#fields.hasErrors('self_introduction')}" th:errors="*{self_introduction}" th:errorclass="err">
+            		<label class="text-danger" th:text="${error}"></label>
+            	</div>
+				</div>
+				<div class="input-img">
+					<label class="img">アバター画面</label>
+					<input type="submit" name="img" value="画像ファイルを添付する" class="button_gray">
+				</div>
+				<input type="submit" name="profile" value="自己紹介を確定する" class="button_blue">
 			</div>
-			<div class="input-img">
-				<label class="img">アバター画面</label>
-				<input type="submit" name="img" value="画像ファイルを添付する" class="button_gray">
-			</div>
-			<input type="submit" name="profile" value="自己紹介を確定する" class="button_blue">
-		</div>
+		</form>
 		<footer>
 			<p class="footerlogo">portfolio site</p>
 		</footer>

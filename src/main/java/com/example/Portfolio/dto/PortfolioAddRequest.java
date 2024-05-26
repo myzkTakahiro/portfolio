@@ -21,7 +21,7 @@ public class PortfolioAddRequest implements Serializable {
 	    @NotEmpty(message = "パスワードは必ず入力してください")
 	    @Pattern(regexp = "(?=.*[0-9])(?=.*[a-zA-Z]).{6,30}",
 	    message = "英数字8文字以上で入力してください")
-	    @Size(min = 8, message = "")
+	    @Size(min = 8)
 	    private String password;
 	 
 	    
@@ -29,5 +29,10 @@ public class PortfolioAddRequest implements Serializable {
 	    @Pattern(regexp = "^(([a-zA-Z0-9])+([a-zA-Z0-9\\._-])*@([a-zA-Z0-9_-])+([a-zA-Z0-9\\._-]+)+)*$", 
 	    message = "メールアドレスが正しい形式ではありません")
 	    private String email;
+	    
+	    
+	    private String self_introduction;
+	    
+	    private Long id;
 
 }

@@ -24,6 +24,7 @@ public class PortfolioSecurityConfig {
                 		, "/login"
                 		, "/css/**"
                         , "/login?error"
+                        , "/skilledit"
                         , "/mysql-console/**")
                 .permitAll()
                 .anyRequest().authenticated()
