@@ -25,7 +25,7 @@
     <select id="findByName" resultType="com.example.Portfolio.entity.LearningData"
                              parameterType="String">
         SELECT
-          name, id
+          name, id, category_id
         FROM
            learning_data
         WHERE

@@ -45,9 +45,9 @@
 								</div>
 							</div>
 							<div class="table-row">
-								<div class="tr" th:each="user : ${userlist}">
+								<div class="tr" th:each="learn : ${userlist}" th:if="${learn.category_id eq 1}">
 									<div class="cell">
-										<div th:text="*{name}"></div>
+										<p th:text="*{name}"></p>
 									</div>
 									<div class="time">
 										<div class="empty">
@@ -87,7 +87,7 @@
 								</div>
 							</div>
 							<div class="table-row">
-								<div class="tr" th:each="user : ${userlist}">
+								<div class="tr" th:each="user : ${userlist}" th:object="${user}">
 									<div class="cell"></div>
 									<div class="time">
 										<div class="empty">
@@ -127,7 +127,7 @@
 								</div>
 							</div>
 							<div class="table-row">
-								<div class="tr" th:each="user : ${userlist}">
+								<div class="tr" th:each="user : ${userlist}" th:object="${user}">
 									<div class="cell"></div>
 									<div class="time">
 										<div class="empty">
