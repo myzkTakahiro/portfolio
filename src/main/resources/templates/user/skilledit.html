@@ -45,9 +45,10 @@
 								</div>
 							</div>
 							<div class="table-row">
-								<div class="tr" th:each="learn : ${userlist}" th:if="${learn.category_id eq 1}">
+								<div class="tr" th:object="${learn}"   th:each="learn : ${userlist}" >
 									<div class="cell">
-										<p th:text="*{name}"></p>
+										<input type="hidden" name="category_id" th:value="${learn.category_id = 1}">
+										<p th:text="*{name}" class="name"></p>
 									</div>
 									<div class="time">
 										<div class="empty">
@@ -86,9 +87,9 @@
 									<div class="delete"></div>
 								</div>
 							</div>
-							<div class="table-row">
-								<div class="tr" th:each="learn : ${userlist}" th:object="${learn}">
-									<div class="cell"></div>
+							<div class="table-row" th:if="${userlist}">
+								<div class="tr" th:each="learn : ${userlist}" th:object="${learn}" >
+									<div class="cell"><p th:text="*{name}" class="name"></p></div>
 									<div class="time">
 										<div class="empty">
 											<div class="dense">
@@ -128,7 +129,7 @@
 							</div>
 							<div class="table-row">
 								<div class="tr" th:each="user : ${userlist}" th:object="${user}">
-									<div class="cell"></div>
+									<div class="cell"><p th:text="*{name}" class="name"></p></div>
 									<div class="time">
 										<div class="empty">
 											<div class="dense">

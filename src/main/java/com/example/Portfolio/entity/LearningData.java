@@ -16,5 +16,6 @@ public class LearningData implements Serializable {
 	
 	private String name;
 	
-	private Long category_id;
+	private Integer category_id;
+	
 }
