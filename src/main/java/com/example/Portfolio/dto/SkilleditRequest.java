@@ -11,7 +11,7 @@ public class SkilleditRequest implements Serializable {
 	
 	private String name;
 	
-	private Integer category_id;
+	private Integer categoryId;
 	
 	
 }

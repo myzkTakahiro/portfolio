@@ -16,10 +16,6 @@
     
     <select id="Allfind" resultType="com.example.Portfolio.entity.LearningData">
     	SELECT * FROM learning_data 
-    	WHERE name IN(
-    		SELECT name FROM learning_data
-    		GROUP BY category_id = #{category_id}
-    	)
     </select>
     
     <select id="Idfind" resultType="com.example.Portfolio.entity.LearningData">
