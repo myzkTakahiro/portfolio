@@ -147,7 +147,7 @@ main {
 .table-row {
 	width: 880px;
 	height: 73px;
-	border-bottom: 1px solid rgba(224, 224, 224, 1);
+
 }
 
 .th {
@@ -181,11 +181,13 @@ main {
 	width: 880px;
 	height: 73px;
 	display: flex;
+	border-bottom: 1px solid rgba(224, 224, 224, 1);
 }
 
 .cell {
 	width: 240px;
 	height: 72px;
+	padding: 16px 16px 16px 40px;
 }
 
 .time {
@@ -244,7 +246,16 @@ main {
 	line-height: 28.13px;
 }
 
-
+.name {
+	width: 184px;
+	height: 20px;
+	font-family: Roboto;
+	font-size: 14px;
+	font-weight: 400;
+	line-height: 20.02px;
+	letter-spacing: 0.15px;
+	margin: 10px 0;
+}
 
 
 

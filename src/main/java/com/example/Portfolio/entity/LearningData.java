@@ -3,6 +3,7 @@ package com.example.Portfolio.entity;
 import java.io.Serializable;
 import java.util.Date;
 
+import org.springframework.data.relational.core.mapping.Column;
 import org.springframework.data.relational.core.mapping.Table;
 
 import lombok.Data;
@@ -16,5 +17,7 @@ public class LearningData implements Serializable {
 	
 	private String name;
 	
-	private Long category_id;
+	 @Column(value="category_id")
+	 private Integer categoryId;
+	
 }
