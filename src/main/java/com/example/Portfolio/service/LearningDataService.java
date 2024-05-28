@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.example.Portfolio.dao.PortfolioMapper;
+import com.example.Portfolio.dto.SkillnewAddRequest;
 import com.example.Portfolio.entity.LearningData;
 
 @Service
@@ -25,6 +26,11 @@ public class LearningDataService {
 
 	    public LearningData findByName(String name) {
 	    	return learningdataMapper.findByName(name);
+	    }
+	    
+	    
+	    public void add(SkillnewAddRequest skillnewaddRequest) {
+	    	learningdataMapper.add(skillnewaddRequest);
 	    }
 	    
 
