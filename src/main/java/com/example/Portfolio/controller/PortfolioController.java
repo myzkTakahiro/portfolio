@@ -80,6 +80,12 @@ public class PortfolioController {
 		        model.addAttribute("userSearchRequest", new SkilleditRequest());
 		 return "user/skilledit";
 	 }
+	 
+	 @GetMapping(value="/skillnew")
+	 	public String displayNew(Model model) {
+		 return "user/skillnew";
+	 }
+	 
 
 	 @RequestMapping("/login")
 	    public String search(@ModelAttribute PortfolioSearchRequest portfolioSearchRequest, Model model) {
