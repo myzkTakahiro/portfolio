@@ -156,7 +156,7 @@ public class PortfolioController {
 	            
 	            model.addAttribute("validationError", errorList);
 	            PortfolioUserDetails userDetails = (PortfolioUserDetails) loginUser.getPrincipal();
-	            model.addAttribute("id", userDetails.getId());
+	            model.addAttribute("user_id", userDetails.getId());
 	            model.addAttribute("portfolioAddRequest", new PortfolioAddRequest());
 	            model.addAttribute("category_id", category_id);
 	            return "user/skillnew";
