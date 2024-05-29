@@ -20,6 +20,8 @@
 		
 		
 		<form th:action="@{/skillnew}" th:object="${skillNewAddRequest}" method="post">
+		<input type="hidden" th:value="${category_id}" name="category_id">
+		<input type="hidden" th:value="${user_id}" name="user_id">
 			<div class="form">
 				<div class="contentbox">
 					<div class="input">

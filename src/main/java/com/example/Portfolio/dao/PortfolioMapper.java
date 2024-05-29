@@ -32,6 +32,10 @@ public interface PortfolioMapper {
 	public LearningData findByName(String nmae);
 	
 	void add(SkillNewAddRequest skillNewAddRequest);
+	
+	public LearningData findName(String name);
+    
+	
 
 }
 

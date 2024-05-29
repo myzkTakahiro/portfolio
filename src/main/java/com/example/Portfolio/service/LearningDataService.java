@@ -33,5 +33,12 @@ public class LearningDataService {
 	    	learningdataMapper.add(skillNewAddRequest);
 	    }
 	    
+	    
+	    public boolean isItemExist(String name) {
+			
+			LearningData existingItem = learningdataMapper.findName(name);
+			return existingItem != null;
+		}
+
 
 }

@@ -83,7 +83,10 @@ public class PortfolioController {
 	 }
 	 
 	 @GetMapping(value="/skillnew")
-	 	public String displayNew(Model model) {
+	 	public String displayNew(@RequestParam Integer category_id,  Authentication loginUser, Model model) {
+		 model.addAttribute("category_id", category_id);
+		 PortfolioUserDetails userDetails = (PortfolioUserDetails) loginUser.getPrincipal();
+		 model.addAttribute("user_id", userDetails.getId());
 		 model.addAttribute("skillNewAddRequest", new SkillNewAddRequest());
 		 return "user/skillnew";
 	 }
@@ -140,14 +143,22 @@ public class PortfolioController {
 	 
 	 
 	 @RequestMapping(value = "/skillnew", method = RequestMethod.POST)
-	    public String skilladd(@Validated @ModelAttribute SkillNewAddRequest skillNewAddRequest, BindingResult result, Model model) {
+	    public String skilladd(@RequestParam Integer category_id,@Validated @ModelAttribute SkillNewAddRequest skillNewAddRequest, BindingResult result, Authentication loginUser, Model model) {
 	        if (result.hasErrors()) {
 	            // 入力チェックエラーの場合
 	            List<String> errorList = new ArrayList<String>();
 	            for (ObjectError error : result.getAllErrors()) {
 	                errorList.add(error.getDefaultMessage());
 	            }
+	            if (learningdataService.isItemExist(skillNewAddRequest.getName())) {
+	                result.rejectValue("name", "duplicate", "入力した項目名は既に使用されています");
+	            }
+	            
 	            model.addAttribute("validationError", errorList);
+	            PortfolioUserDetails userDetails = (PortfolioUserDetails) loginUser.getPrincipal();
+	            model.addAttribute("id", userDetails.getId());
+	            model.addAttribute("portfolioAddRequest", new PortfolioAddRequest());
+	            model.addAttribute("category_id", category_id);
 	            return "user/skillnew";
 	        }
 	        // ユーザー情報の登録

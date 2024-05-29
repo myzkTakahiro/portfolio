@@ -40,6 +40,11 @@
             (#{name}, #{study_time}, #{category_id}, #{user_id}, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP)
     </insert>
     
+    <select id="findName" parameterType="String" resultType="com.example.Portfolio.entity.LearningData">
+  		SELECT name FROM learning_data
+  		WHERE name = #{name}
+	</select>
+    
 
     <select id="findByEmail" resultType="com.example.Portfolio.entity.users"
                              parameterType="String">
