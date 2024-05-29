@@ -139,6 +139,7 @@ footer {
 	line-height: 20px;
 	letter-spacing: 0.4px;
 	color: rgba(0, 0, 0, 0.54);
+	margin: 0;
 }
 
 .button_blue {
@@ -157,7 +158,9 @@ footer {
 	left: 124px;
 }
 
-
+.err {
+	color: red;
+}
 
 
 

@@ -19,12 +19,12 @@
 		<h1 class="title">{カテゴリー名} に項目を追加</h1>
 		
 		
-		<form th:action="@{/skillnew}" th:object="${skill}" th:method="post">
+		<form th:action="@{/skillnew}" th:object="${skillNewAddRequest}" method="post">
 			<div class="form">
 				<div class="contentbox">
 					<div class="input">
 						<label class="label">項目名</label>
-						<input type="text" th:field="*{name}" class="controller-1">
+						<input type="text" th:field="*{name}"  class="controller-1"/>
 					</div>
 					<div th:if="${#fields.hasErrors('name')}" th:errors="*{name}" th:errorclass="err">
             			<label class="text-danger" th:text="${error}"></label>

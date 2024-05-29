@@ -28,8 +28,8 @@ import com.example.Portfolio.dao.PortfolioUserDetails;
 import com.example.Portfolio.dto.PortfolioAddRequest;
 import com.example.Portfolio.dto.PortfolioSearchRequest;
 import com.example.Portfolio.dto.PortfolioUpdateRequest;
+import com.example.Portfolio.dto.SkillNewAddRequest;
 import com.example.Portfolio.dto.SkilleditRequest;
-import com.example.Portfolio.dto.SkillnewAddRequest;
 import com.example.Portfolio.entity.LearningData;
 import com.example.Portfolio.entity.users;
 import com.example.Portfolio.service.LearningDataService;
@@ -84,7 +84,7 @@ public class PortfolioController {
 	 
 	 @GetMapping(value="/skillnew")
 	 	public String displayNew(Model model) {
-		 model.addAttribute("skill", new SkillnewAddRequest());
+		 model.addAttribute("skillNewAddRequest", new SkillNewAddRequest());
 		 return "user/skillnew";
 	 }
 	 
@@ -140,7 +140,7 @@ public class PortfolioController {
 	 
 	 
 	 @RequestMapping(value = "/skillnew", method = RequestMethod.POST)
-	    public String skilladd(@Validated @ModelAttribute SkillnewAddRequest skillnewaddRequest, BindingResult result, Model model) {
+	    public String skilladd(@Validated @ModelAttribute SkillNewAddRequest skillNewAddRequest, BindingResult result, Model model) {
 	        if (result.hasErrors()) {
 	            // 入力チェックエラーの場合
 	            List<String> errorList = new ArrayList<String>();
@@ -151,7 +151,7 @@ public class PortfolioController {
 	            return "user/skillnew";
 	        }
 	        // ユーザー情報の登録
-	        learningdataService.add(skillnewaddRequest);
+	        learningdataService.add(skillNewAddRequest);
 	        return "redirect:/skilledit";
 	    }
 

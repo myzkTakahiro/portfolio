@@ -13,7 +13,7 @@ import jakarta.validation.constraints.Size;
 import lombok.Data;
 
 @Data
-public class SkillnewAddRequest implements Serializable {
+public class SkillNewAddRequest  implements Serializable {
 	
 	
 	@NotEmpty(message = "項目名は必ず入力してください")
@@ -31,6 +31,4 @@ public class SkillnewAddRequest implements Serializable {
 	
 	private Integer user_id;
 	
-	
-
 }
