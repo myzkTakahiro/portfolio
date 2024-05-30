@@ -45,7 +45,7 @@
         SET 
         	Study_time = #{study_time}, updated_at = CURRENT_TIMESTAMP 
         WHERE
-        	name = #{name}
+        	id = #{id}
     </update>
     
     <select id="findName" parameterType="String" resultType="com.example.Portfolio.entity.LearningData">
