@@ -143,7 +143,8 @@
 										<div class="time">
 											<div class="empty">
 												<div class="dense">
-													<input type="number" class="study-hours" th:value="*{studyTime}"/>
+													<input type="number" name="study_time" class="study-hours" th:value="*{studyTime}"/>
+													<input type="hidden" name="id" th:value="${learn.id}">
 												</div>
 											</div>
 										</div>

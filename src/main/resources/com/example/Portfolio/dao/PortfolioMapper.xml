@@ -43,7 +43,7 @@
     <update id="timeUpdate">
         UPDATE learning_data 
         SET 
-        	Study_time = #{study_time}, updated_at = CURRENT_TIMESTAMP 
+        	study_time = #{study_time}, updated_at = CURRENT_TIMESTAMP 
         WHERE
         	id = #{id}
     </update>
