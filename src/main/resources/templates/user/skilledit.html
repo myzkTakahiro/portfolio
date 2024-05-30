@@ -89,7 +89,7 @@
 									<div class="delete"></div>
 								</div>
 							</div>
-							
+							<form th:action="@{/skilledit}" th:object="${skillTimeUpdateRequest}" th:method="post">
 								<div class="table-row" >
 									<div class="tr" th:if="${learn.categoryId} == 2" th:each="learn : ${userlist}" th:object="${learn}" >
 										<div class="cell">
@@ -111,7 +111,7 @@
 										</div>
 									</div>
 								</div>
-							
+							</form>
 						</div>
 					</div>
 				</div>
@@ -134,7 +134,7 @@
 									<div class="delete"></div>
 								</div>
 							</div>
-							
+							<form th:action="@{/skilledit}" th:object="${skillTimeUpdateRequest}" th:method="post">
 								<div class="table-row">
 									<div class="tr" th:if="${learn.categoryId} == 3" th:each="learn : ${userlist}" th:object="${learn}">
 										<div class="cell">
@@ -155,7 +155,7 @@
 										</div>
 									</div>
 								</div>
-							
+							</form>
 						</div>
 					</div>
 				</div>
