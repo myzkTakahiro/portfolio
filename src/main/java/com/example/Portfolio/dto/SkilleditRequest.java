@@ -14,4 +14,5 @@ public class SkilleditRequest implements Serializable {
 	private Integer categoryId;
 	
 	
+	
 }

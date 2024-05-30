@@ -45,24 +45,14 @@
 								</div>
 							</div>
 							<div class="table-row">
-								<div class="tr" th:if="${learn.categoryId} == 1" th:object="${learn}" th:each="learn : ${userlist}">
-									<div class="cell">
-										<p  th:text="*{name}" class="name"></p>
+									<div class="tr" th:if="${learn.categoryId} == 1" th:object="${learn}" th:each="learn : ${userlist}">
+										
+										<div class="cell"><p  th:text="*{name}" class="name"></p></div>
+										<div class="time"><div class="empty"><div class="dense"><input type="number" class="study-hours" th:value="*{studyTime}"/></div></div></div>
+										<div class="outline"><input type="submit" value="学習時間を保存する" class="btn_save"></div>
+										<div class="delete"><input type="submit" value="削除する" class="btn_delete"></div>
+										
 									</div>
-									<div class="time">
-										<div class="empty">
-											<div class="dense">
-												<input type="number" class="study-hours" th:value="*{studyTime}"/>
-											</div>
-										</div>
-									</div>
-									<div class="outline">
-										<input type="submit" value="学習時間を保存する" class="btn_save">
-									</div>
-									<div class="delete">
-										<input type="submit" value="削除する" class="btn_delete">
-									</div>
-								</div>
 							</div>
 						</div>
 					</div>

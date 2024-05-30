@@ -40,6 +40,14 @@
             (#{name}, #{study_time}, #{category_id}, #{user_id}, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP)
     </insert>
     
+    <update id="timeUpdate">
+        UPDATE learning_data 
+        SET 
+        	Study_time = #{study_time}, updated_at = CURRENT_TIMESTAMP 
+        WHERE
+        	name = #{name}
+    </update>
+    
     <select id="findName" parameterType="String" resultType="com.example.Portfolio.entity.LearningData">
   		SELECT name FROM learning_data
   		WHERE name = #{name}
@@ -55,6 +63,15 @@
         WHERE
            id = #{id}
 
+    </select>
+    
+    <select id="findCategory" resultType="com.example.Portfolio.entity.Categories">
+    	SELECT
+    		name, id
+    	FROM
+    		categories
+    	WHERE
+    		id = #{category_id}
     </select>
 
    
@@ -75,6 +92,8 @@
         WHERE
         	id = #{id}
     </update>
+    
+    
 
     
 </mapper>
