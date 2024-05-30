@@ -16,7 +16,7 @@
 				<input type="submit" name="logout" value="ログアウト" class="button_white"/>
 			</form>
 		</header>
-		<h1 class="title" ></h1>
+		<h1 class="title" th:text="${category_name.name} + 'を追加'"></h1>
 		
 		
 		<form th:action="@{/skillnew}" th:object="${skillNewAddRequest}" method="post">
