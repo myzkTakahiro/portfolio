@@ -163,6 +163,8 @@ public class PortfolioController {
 	            model.addAttribute("user_id", userDetails.getId());
 	            model.addAttribute("portfolioAddRequest", new PortfolioAddRequest());
 	            model.addAttribute("category_id", category_id);
+	            Categories categoryName = learningdataService.findCategory(category_id);
+		        model.addAttribute("category_name", categoryName);
 	            return "user/skillnew";
 	        }
 	        // ユーザー情報の登録
