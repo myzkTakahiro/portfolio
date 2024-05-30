@@ -136,6 +136,9 @@ main {
 	border-radius: 4px;
 	box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.2);
 	margin-top: 36px;
+	max-height: 305px;
+    overflow-y: auto;
+    display: block;
 }
 
 .table-header {
@@ -194,6 +197,16 @@ main {
 	width: 240px;
 	height: 72px;
 	padding: 16px;
+}
+
+.study-hours {
+	width: 160px;
+	height: 40px;
+	padding: 3px 0px 3px 12px;
+	gap: 3px;
+	border-radius: 4px;
+	border: 1px solid rgba(0, 0, 0, 0.23);
+	
 }
 
 .outline {

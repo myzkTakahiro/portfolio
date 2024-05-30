@@ -1,0 +1,189 @@
+@charset "UTF-8";
+
+.container {
+	margin: 0;
+	padding: 0;
+}
+
+
+.logo {
+	color: white;
+	font-size: 36px;
+	float: left;
+	font-weight: 700;
+	font-family: Roboto; 
+	line-height: 42.19px;
+}
+
+.button_white {
+	float: right;
+	width: 152px;
+	height: 53px;
+	font-family: Roboto;
+	font-weight: 400;
+	font-size: 18px;
+	line-height: 21.09px;
+	border-radius: 4px;
+	background-color: white;
+	padding: 16px 0px;
+}
+
+header {
+	width: 1440px;
+	height: 120px;
+	padding: 0px 40px;
+	background-color: #1B5678;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	position: relative;
+}
+
+footer {
+	width: 1440px;
+	height: 40px;
+	padding: 0px 40px;
+	margin-top: 388px;
+	background-color: #1B5678;
+	justify-content: space-between;
+	position: relative;
+}
+
+.footerlogo {
+	width: 120px;
+	height: 21px;
+	font-weight: 400;
+	font-size: 18px;
+	font-family: Roboto;
+	color: #FFFFFF;
+	line-height: 21.09px;
+	position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.title {
+	width: 466px;
+	height: 48px;
+	font-family: Roboto;
+	font-weight: 400;
+	font-size: 34px;
+	line-height: 48.02px;
+	text-align: center;
+	color: rgba(0, 0, 0, 0.75); 
+	margin: 80px 0 0 487px;
+}
+
+.form {
+	width: 480px;
+	height: 268px;
+	margin: 80px 0 0 480px;
+	position: relative;
+}
+
+.contentbox {
+	width: 480px;
+	height: 48px;
+	margin-bottom: 48px;
+	position: relative;
+}
+
+.timebox {
+	width: 480px;
+	height: 71px;
+	margin-bottom: 48px;
+}
+
+.input {
+	width: 480px;
+	height: 48px;
+}
+
+.controller-1 {
+	width: 480px;
+	height: 48px;
+	outline: none;
+	border-style: none none solid none;
+	border-width: 1px;
+	border-color:rgba(0, 0, 0, 0.42);
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+
+.controller-2 {
+	width: 480px;
+	height: 48px;
+	outline: none;
+	border-style: none none solid none;
+	border-width: 1px;
+	border-color:rgba(0, 0, 0, 0.42);
+}
+
+.label {
+	font-family: Roboto;
+	font-weight: 400;
+	font-size: 12px;
+	line-height: 12px;
+	letter-spacing: 0.15px;
+	color: rgba(0, 0, 0, 0.54);
+	position: absolute;
+	z-index: 4;
+}
+
+.helptext {
+	font-family: Roboto;
+	font-weight: 400;
+	font-size: 12px;
+	line-height: 20px;
+	letter-spacing: 0.4px;
+	color: rgba(0, 0, 0, 0.54);
+	margin: 0;
+}
+
+.button_blue {
+	width: 232px;
+	height: 53px;
+	border-radius: 4px;
+	padding: 16px 80px;
+	background-color: rgba(27, 86, 120, 1);
+	font-family: Roboto;
+	font-weight: 400px;
+	font-size: 18px;
+	line-height: 21.09px;
+	color: rgba(255, 255, 255, 1);
+	position: absolute;
+	bottom: 0;
+	left: 124px;
+}
+
+.err {
+	color: red;
+	font-size: 14px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

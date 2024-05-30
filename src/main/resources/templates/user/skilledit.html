@@ -29,7 +29,7 @@
 					<div class="content">
 						<div class="titlebox">
 							<div class="title">バックエンド</div>
-							<input type="submit" value="項目を追加する" class="button_blue">
+							<input type="button" onclick="location.href='./skillnew?category_id=1'" value="項目を追加する" class="button_blue"/>
 						</div>
 						<div class="table-box">
 							<div class="table-header">
@@ -44,26 +44,29 @@
 									<div class="delete"></div>
 								</div>
 							</div>
-							<div class="table-row">
-								<div class="tr" th:if="${learn.categoryId} == 1" th:object="${learn}" th:each="learn : ${userlist}">
-									<div class="cell">
-										<p  th:text="*{name}" class="name"></p>
-									</div>
-									<div class="time">
-										<div class="empty">
-											<div class="dense">
-												<input type="number" value="0" min="0" max="60" step="1">
+							<form th:action="@{/skilledit}" th:object="${skillTimeUpdateRequest}" th:method="post">
+								<div class="table-row" >
+									<div class="tr" th:if="${learn.categoryId} == 1" th:each="learn : ${userlist}" th:object="${learn}" >
+										<div class="cell">
+											<p th:text="*{name}" class="name"></p>
+										</div>
+										<div class="time">
+											<div class="empty">
+												<div class="dense">
+													<input type="number" name="study_time" class="study-hours" th:value="*{studyTime}"/>
+													<input type="hidden" name="id" th:value="${learn.id}">
+												</div>
 											</div>
 										</div>
-									</div>
-									<div class="outline">
-										<input type="submit" value="学習時間を保存する" class="btn_save">
-									</div>
-									<div class="delete">
-										<input type="submit" value="削除する" class="btn_delete">
+										<div class="outline">
+											<input type="submit" value="学習時間を保存する" class="btn_save">
+										</div>
+										<div class="delete">
+											<input type="submit" value="削除する" class="btn_delete">
+										</div>
 									</div>
 								</div>
-							</div>
+							</form>
 						</div>
 					</div>
 				</div>
@@ -71,7 +74,7 @@
 					<div class="content">
 						<div class="titlebox">
 							<div class="title">フロントエンド</div>
-							<input type="submit" value="項目を追加する" class="button_blue">
+							<input type="button" onclick="location.href='./skillnew?category_id=2'" value="項目を追加する" class="button_blue"/>
 						</div>
 						<div class="table-box">
 							<div class="table-header">
@@ -86,26 +89,29 @@
 									<div class="delete"></div>
 								</div>
 							</div>
-							<div class="table-row" >
-								<div class="tr" th:if="${learn.categoryId} == 2" th:each="learn : ${userlist}" th:object="${learn}" >
-									<div class="cell">
-										<p th:text="*{name}" class="name"></p>
-									</div>
-									<div class="time">
-										<div class="empty">
-											<div class="dense">
-												<input type="number" value="0" min="0" max="60" step="1">
+							
+								<div class="table-row" >
+									<div class="tr" th:if="${learn.categoryId} == 2" th:each="learn : ${userlist}" th:object="${learn}" >
+										<div class="cell">
+											<p th:text="*{name}" class="name"></p>
+										</div>
+										<div class="time">
+											<div class="empty">
+												<div class="dense">
+													<input type="number" name="study_time" class="study-hours" th:value="*{studyTime}"/>
+													<input type="hidden" name="id" th:value="${learn.id}">
+												</div>
 											</div>
 										</div>
-									</div>
-									<div class="outline">
-										<input type="submit" value="学習時間を保存する" class="btn_save">
-									</div>
-									<div class="delete">
-										<input type="submit" value="削除する" class="btn_delete">
+										<div class="outline">
+											<input type="submit" value="学習時間を保存する" class="btn_save">
+										</div>
+										<div class="delete">
+											<input type="submit" value="削除する" class="btn_delete">
+										</div>
 									</div>
 								</div>
-							</div>
+							
 						</div>
 					</div>
 				</div>
@@ -113,7 +119,7 @@
 					<div class="content">
 						<div class="titlebox">
 							<div class="title">インフラ</div>
-							<input type="submit" value="項目を追加する" class="button_blue">
+							<input type="button" onclick="location.href='./skillnew?category_id=3'" value="項目を追加する" class="button_blue"/>
 						</div>
 						<div class="table-box">
 							<div class="table-header">
@@ -128,26 +134,28 @@
 									<div class="delete"></div>
 								</div>
 							</div>
-							<div class="table-row">
-								<div class="tr" th:if="${learn.categoryId} == 3" th:each="learn : ${userlist}" th:object="${learn}">
-									<div class="cell">
-										<p th:text="*{name}" class="name"></p>
-									</div>
-									<div class="time">
-										<div class="empty">
-											<div class="dense">
-												<input type="number" value="0" min="0" max="60" step="1">
+							
+								<div class="table-row">
+									<div class="tr" th:if="${learn.categoryId} == 3" th:each="learn : ${userlist}" th:object="${learn}">
+										<div class="cell">
+											<p th:text="*{name}" class="name"></p>
+										</div>
+										<div class="time">
+											<div class="empty">
+												<div class="dense">
+													<input type="number" class="study-hours" th:value="*{studyTime}"/>
+												</div>
 											</div>
 										</div>
-									</div>
-									<div class="outline">
-										<input type="submit" value="学習時間を保存する" class="btn_save">
-									</div>
-									<div class="delete">
-										<input type="submit" value="削除する" class="btn_delete">
+										<div class="outline">
+											<input type="submit" value="学習時間を保存する" class="btn_save">
+										</div>
+										<div class="delete">
+											<input type="submit" value="削除する" class="btn_delete">
+										</div>
 									</div>
 								</div>
-							</div>
+							
 						</div>
 					</div>
 				</div>

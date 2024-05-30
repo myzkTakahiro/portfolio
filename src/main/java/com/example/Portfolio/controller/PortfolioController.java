@@ -28,7 +28,10 @@ import com.example.Portfolio.dao.PortfolioUserDetails;
 import com.example.Portfolio.dto.PortfolioAddRequest;
 import com.example.Portfolio.dto.PortfolioSearchRequest;
 import com.example.Portfolio.dto.PortfolioUpdateRequest;
+import com.example.Portfolio.dto.SkillNewAddRequest;
+import com.example.Portfolio.dto.SkillTimeUpdateRequest;
 import com.example.Portfolio.dto.SkilleditRequest;
+import com.example.Portfolio.entity.Categories;
 import com.example.Portfolio.entity.LearningData;
 import com.example.Portfolio.entity.users;
 import com.example.Portfolio.service.LearningDataService;
@@ -77,9 +80,21 @@ public class PortfolioController {
 		 public String displayList(Model model) {
 		        List<LearningData> userList = learningdataService.Allfind();
 		        model.addAttribute("userlist", userList);
-		        model.addAttribute("userSearchRequest", new SkilleditRequest());
+		        model.addAttribute("skillTimeUpdateRequest", new SkillTimeUpdateRequest());
 		 return "user/skilledit";
 	 }
+	 
+	 @GetMapping(value="/skillnew")
+	 	public String displayNew(@RequestParam Integer category_id,  Authentication loginUser, Model model) {
+		 model.addAttribute("category_id", category_id);
+		 PortfolioUserDetails userDetails = (PortfolioUserDetails) loginUser.getPrincipal();
+		 model.addAttribute("user_id", userDetails.getId());
+		 model.addAttribute("skillNewAddRequest", new SkillNewAddRequest());
+		 Categories categoryName = learningdataService.findCategory(category_id);
+	        model.addAttribute("category_name", categoryName);
+		 return "user/skillnew";
+	 }
+	 
 
 	 @RequestMapping("/login")
 	    public String search(@ModelAttribute PortfolioSearchRequest portfolioSearchRequest, Model model) {
@@ -128,6 +143,43 @@ public class PortfolioController {
 	         SecurityContextHolder.getContext().setAuthentication(authToken);
 	        
 	        return "redirect:/top";
+	    }
+	 
+	 
+	 @RequestMapping(value = "/skillnew", method = RequestMethod.POST)
+	    public String skilladd(@RequestParam Integer category_id,@Validated @ModelAttribute SkillNewAddRequest skillNewAddRequest, BindingResult result, Authentication loginUser, Model model) {
+	        if (result.hasErrors()) {
+	            // 入力チェックエラーの場合
+	            List<String> errorList = new ArrayList<String>();
+	            for (ObjectError error : result.getAllErrors()) {
+	                errorList.add(error.getDefaultMessage());
+	            }
+	            if (learningdataService.isItemExist(skillNewAddRequest.getName())) {
+	                result.rejectValue("name", "duplicate", "入力した項目名は既に使用されています");
+	            }
+	            
+	            model.addAttribute("validationError", errorList);
+	            PortfolioUserDetails userDetails = (PortfolioUserDetails) loginUser.getPrincipal();
+	            model.addAttribute("user_id", userDetails.getId());
+	            model.addAttribute("portfolioAddRequest", new PortfolioAddRequest());
+	            model.addAttribute("category_id", category_id);
+	            Categories categoryName = learningdataService.findCategory(category_id);
+		        model.addAttribute("category_name", categoryName);
+	            return "user/skillnew";
+	        }
+	        // ユーザー情報の登録
+	        learningdataService.add(skillNewAddRequest);
+	        return "redirect:/skilledit";
+	    }
+	 
+	 
+	 @RequestMapping(value = "/skilledit", method = RequestMethod.POST)
+	    public String timeUpdate(@Validated @ModelAttribute SkillTimeUpdateRequest skillTimeUpdateRequest, BindingResult result, Authentication loginUser, Model model, Authentication authentication) {
+	        // ユーザー情報の更新
+		 	model.addAttribute("id",skillTimeUpdateRequest);
+	        learningdataService.timeUpdate(skillTimeUpdateRequest);
+	        
+	        return "redirect:/skilledit";
 	    }
 
 	 
