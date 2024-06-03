@@ -48,8 +48,7 @@
 				<canvas id="chart"></canvas>
 		   			<script type="text/javascript">
 
-		  				 var ctx = document.getElementById("chart");
-		   					//let lineChart = new Chart(lineCtx, lineConfig);
+		  				var ctx = document.getElementById("chart");
 		   				var samplechart = new Chart(ctx, {
 
 							type: 'bar',
@@ -72,18 +71,6 @@
 							backgroundColor: '#48f',
 							}],
 							},
-							option: {
-								responsive: false,
-								scales: {
-									yAxes: {
-										ticks: {
-											min: 0,
-											max: 100,
-											stepSize: 10,
-										}
-									}
-								}
-							}
 							});
 
 		   		</script>
