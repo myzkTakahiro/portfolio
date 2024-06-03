@@ -40,6 +40,8 @@ public interface PortfolioMapper {
 	void timeUpdate(SkillTimeUpdateRequest skillTimeUpdateRequest);
 	
 	public Categories findCategory(Integer category_id);
+	
+	void delete(Long id);
 
 }
 

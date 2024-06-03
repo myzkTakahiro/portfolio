@@ -18,7 +18,7 @@ import org.springframework.validation.ObjectError;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
-
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -94,6 +94,13 @@ public class PortfolioController {
 	        model.addAttribute("category_name", categoryName);
 		 return "user/skillnew";
 	 }
+	 
+	  @GetMapping("/user/{id}/delete")
+	    public String delete(@PathVariable Long id, Model model) {
+	        // ユーザー情報の削除
+	        learningdataService.delete(id);
+	        return "redirect:/user/list";
+	    }
 	 
 
 	 @RequestMapping("/login")
