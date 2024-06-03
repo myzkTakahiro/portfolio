@@ -99,7 +99,7 @@ public class PortfolioController {
 	    public String delete(@PathVariable Long id, Model model) {
 	        // ユーザー情報の削除
 	        learningdataService.delete(id);
-	        return "redirect:/user/list";
+	        return "redirect:/skilledit";
 	    }
 	 
 

@@ -93,9 +93,10 @@
         	id = #{id}
     </update>
     
-    <update id="delete">
-        UPDATE learning_data SET delete_date = CURRENT_TIMESTAMP WHERE id = #{id}
-    </update>
+    <delete id="delete">
+        delete from learning_data
+  		where id = #{id}
+    </delete>
     
     
 

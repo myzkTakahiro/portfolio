@@ -52,7 +52,12 @@
 										<div class="save"><input type="submit" value="学習時間を保存する" class="btn_save"></div>
 										</form>
 									</td>
-									<td class="delete"><input type="submit" value="削除する" class="btn_delete"></td>
+									<td class="delete">
+										<form th:action="@{/user/{id}/delete(id=*{id})}" >
+											<input type="submit" value="削除する" class="btn_delete">
+											<input type="hidden" name="id" th:value="${learn.id}">
+										</form>
+									</td>
 								</tr>
 							</tbody>
 						</table>
@@ -85,7 +90,12 @@
 										<div class="save"><input type="submit" value="学習時間を保存する" class="btn_save"></div>
 										</form>
 									</td>
-									<td class="delete"><input type="submit" value="削除する" class="btn_delete"></td>
+									<td class="delete">
+										<form th:action="@{/user/{id}/delete(id=*{id})}" >
+											<input type="submit" value="削除する" class="btn_delete">
+											<input type="hidden" name="id" th:value="${learn.id}">
+										</form>
+									</td>
 								</tr>
 							</tbody>
 						</table>
@@ -118,7 +128,12 @@
 										<div class="save"><input type="submit" value="学習時間を保存する" class="btn_save"></div>
 										</form>
 									</td>
-									<td class="delete"><input type="submit" value="削除する" class="btn_delete"></td>
+									<td class="delete">
+										<form th:action="@{/user/{id}/delete(id=*{id})}" >
+											<input type="submit" value="削除する" class="btn_delete">
+											<input type="hidden" name="id" th:value="${learn.id}">
+										</form>
+									</td>
 								</tr>
 							</tbody>
 						</table>
