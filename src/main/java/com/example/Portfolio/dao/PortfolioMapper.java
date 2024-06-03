@@ -42,6 +42,8 @@ public interface PortfolioMapper {
 	public Categories findCategory(Integer category_id);
 	
 	void delete(Long id);
+	
+	
 
 }
 
