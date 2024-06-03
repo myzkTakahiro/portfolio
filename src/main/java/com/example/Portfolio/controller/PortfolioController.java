@@ -176,7 +176,7 @@ public class PortfolioController {
 	 @RequestMapping(value = "/skilledit", method = RequestMethod.POST)
 	    public String timeUpdate(@Validated @ModelAttribute SkillTimeUpdateRequest skillTimeUpdateRequest, BindingResult result, Authentication loginUser, Model model, Authentication authentication) {
 	        // ユーザー情報の更新
-		 	//model.addAttribute("id",skillTimeUpdateRequest);
+		 	
 	        learningdataService.timeUpdate(skillTimeUpdateRequest);
 	        
 	        return "redirect:/skilledit";
