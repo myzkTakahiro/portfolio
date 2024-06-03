@@ -49,6 +49,10 @@ public class LearningDataService {
 	    public Categories findCategory(Integer category_id) {
 	    	return learningdataMapper.findCategory(category_id);
 	    }
+	    
+	    public void delete(Long id) {
+	        learningdataMapper.delete(id);
+	    }
 
 
 }
