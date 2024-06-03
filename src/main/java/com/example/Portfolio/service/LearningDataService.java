@@ -53,6 +53,10 @@ public class LearningDataService {
 	    public void delete(Long id) {
 	        learningdataMapper.delete(id);
 	    }
+	    
+	    public LearningData sumTime(int study_time) {
+	    	return learningdataMapper.sumTime(study_time);
+	    }
 
 
 }
