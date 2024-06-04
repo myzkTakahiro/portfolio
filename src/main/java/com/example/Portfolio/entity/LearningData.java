@@ -20,8 +20,8 @@ public class LearningData implements Serializable {
 	 @Column(value="category_id")
 	 private Integer categoryId;
 	 
-	
-	 private int study_time;
+	 @Column(value="study_time")
+	 private int studyTime;
 	 
 	 @Column(value="user_id")
 	 private Integer userId;
