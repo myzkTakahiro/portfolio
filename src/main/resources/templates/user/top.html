@@ -46,32 +46,42 @@
 			</div>
 			<div class="mychart">
 				<canvas id="chart"></canvas>
-		   			<script type="text/javascript">
+					<script type="text/javascript"  th:inline="javascript">
+        				let totalTime = /*[[${totalTime}]]*/ [];
+        				let groupedByCategory = {};
+        				totalTime.forEach(expense => {
+            			let category = expense.categoryId;
+            			if (!groupedByCategory[category]) {
+                			groupedByCategory[category] = [];
+            				}
+            			groupedByCategory[category].push(expense);
+        				});
+        				let arrays = Object.keys(groupedByCategory).map(key => groupedByCategory[key]);
+        				console.log(arrays);
+        				
+		  			let ctx = document.getElementById("chart");
+		   			let samplechart = new Chart(ctx, {
 
-		  				var ctx = document.getElementById("chart");
-		   				var samplechart = new Chart(ctx, {
-
-							type: 'bar',
-							data: {
+						type: 'bar',
+						data: {
 			            	labels: ["先々月","先月", "今月"],
-			            	datasets: [{
-
-							label: 'バックエンド',
-							data: [10, 10, 10],
-							backgroundColor: '#f88',
-
-							}, {
-							label: 'フロントエンド',
-							data: [10, 10, 10],
-							backgroundColor: '#484',
-							
-							}, {
-							label: 'インフラ',
-							data: [10, 10, 10],
-							backgroundColor: '#48f',
-							}],
-							},
-							});
+			            	datasets: [
+			            		{
+								label: 'バックエンド',
+								data: [],
+								backgroundColor: '#f88',
+								}, {
+								label: 'フロントエンド',
+								data: [],
+								backgroundColor: '#484',
+								}, {
+								label: 'インフラ',
+								data: [],
+								backgroundColor: '#48f',
+								}
+							],
+						},
+					});
 
 		   		</script>
 			</div>
