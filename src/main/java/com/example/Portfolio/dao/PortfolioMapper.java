@@ -43,7 +43,7 @@ public interface PortfolioMapper {
 	
 	void delete(Long id);
 	
-	public LearningData sumTime(int study_time);
+	List<LearningData> sumTime();
 
 }
 

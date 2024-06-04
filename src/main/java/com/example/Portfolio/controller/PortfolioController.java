@@ -58,15 +58,16 @@ public class PortfolioController {
 	    }
 	
 	 @GetMapping(value = "/top")
-	 	public String displayTop(Authentication loginUser,Model model, int study_time) {
+	 	public String displayTop(Authentication loginUser,Model model) {
 		 model.addAttribute("portfolioAddRequest", new PortfolioAddRequest());
 	        model.addAttribute("email", loginUser.getName());
 		 PortfolioUserDetails userDetails = (PortfolioUserDetails) loginUser.getPrincipal();
 		 	model.addAttribute("portfolioAddRequest", new PortfolioAddRequest());
 	        model.addAttribute("userName", userDetails.getName());
 	        model.addAttribute("selfintroduction", userDetails.getSelfIntroduction());
-	     LearningData timeAll = learningdataService.sumTime(study_time);
-	     	model.addAttribute("timeAll", timeAll);
+	        List<LearningData> totalTime = learningdataService.sumTime();
+	        model.addAttribute("totalTime", totalTime);
+	        System.out.println(totalTime);
 		 return "user/top";
 	 }
 	 

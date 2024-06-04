@@ -54,8 +54,8 @@ public class LearningDataService {
 	        learningdataMapper.delete(id);
 	    }
 	    
-	    public LearningData sumTime(int study_time) {
-	    	return learningdataMapper.sumTime(study_time);
+	    public List<LearningData> sumTime() {
+	    	return learningdataMapper.sumTime();
 	    }
 
 
