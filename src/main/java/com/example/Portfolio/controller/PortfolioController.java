@@ -35,6 +35,7 @@ import com.example.Portfolio.dto.SkillTimeUpdateRequest;
 import com.example.Portfolio.dto.SkilleditRequest;
 import com.example.Portfolio.entity.Categories;
 import com.example.Portfolio.entity.LearningData;
+import com.example.Portfolio.entity.StudyTime;
 import com.example.Portfolio.entity.users;
 import com.example.Portfolio.service.LearningDataService;
 import com.example.Portfolio.service.PortfolioService;
@@ -67,7 +68,7 @@ public class PortfolioController {
 		 	model.addAttribute("portfolioAddRequest", new PortfolioAddRequest());
 	        model.addAttribute("userName", userDetails.getName());
 	        model.addAttribute("selfintroduction", userDetails.getSelfIntroduction());
-	        List<LearningData> totalTime = learningdataService.sumTime();
+	        List<StudyTime> totalTime = learningdataService.sumTime();
 	        model.addAttribute("totalTime", totalTime);
 	        System.out.println(totalTime);
 		 return "user/top";

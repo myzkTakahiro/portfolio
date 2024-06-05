@@ -10,6 +10,7 @@ import com.example.Portfolio.dto.SkillNewAddRequest;
 import com.example.Portfolio.dto.SkillTimeUpdateRequest;
 import com.example.Portfolio.entity.Categories;
 import com.example.Portfolio.entity.LearningData;
+import com.example.Portfolio.entity.StudyTime;
 
 @Service
 public class LearningDataService {
@@ -54,7 +55,7 @@ public class LearningDataService {
 	        learningdataMapper.delete(id);
 	    }
 	    
-	    public List<LearningData> sumTime() {
+	    public List<StudyTime> sumTime() {
 	    	return learningdataMapper.sumTime();
 	    }
 

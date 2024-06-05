@@ -99,7 +99,7 @@
     </delete>
     
     
-    <select id="sumTime" resultType="com.example.Portfolio.entity.LearningData">
+    <select id="sumTime" resultType="com.example.Portfolio.entity.StudyTime">
     	 select date_format(month,'%m') as month, category_id, SUM(study_time) as study_time 
     	 from learning_data where date_format(month,'%m') in ('04', '05', '06') 
     	 group by category_id, date_format(month,'%m') 

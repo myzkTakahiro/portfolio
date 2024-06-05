@@ -10,6 +10,7 @@ import com.example.Portfolio.dto.SkillNewAddRequest;
 import com.example.Portfolio.dto.SkillTimeUpdateRequest;
 import com.example.Portfolio.entity.Categories;
 import com.example.Portfolio.entity.LearningData;
+import com.example.Portfolio.entity.StudyTime;
 import com.example.Portfolio.entity.users;
 
 
@@ -43,7 +44,7 @@ public interface PortfolioMapper {
 	
 	void delete(Long id);
 	
-	List<LearningData> sumTime();
+	List<StudyTime> sumTime();
 
 }
 

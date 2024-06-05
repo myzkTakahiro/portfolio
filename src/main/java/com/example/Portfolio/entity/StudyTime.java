@@ -12,7 +12,7 @@ import lombok.Data;
 
 @Data
 @Table(name="learning_data")
-public class LearningData implements Serializable {
+public class StudyTime implements Serializable {
 	
 	private Long id;
 	
@@ -27,6 +27,5 @@ public class LearningData implements Serializable {
 	 @Column(value="user_id")
 	 private Integer userId;
 	 
-	 private Instant month;
-	
+	 private Integer month;
 }
