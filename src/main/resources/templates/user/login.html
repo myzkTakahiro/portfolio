@@ -10,31 +10,33 @@
 <title>login</title>
 </head>
 <body>
-	<div class="container">
+	
 		<header>
 			<h1>My Portfolio</h1>
 		</header>
-		<h2>ログイン</h2>
-		<div class="form">
-		<form th:action="@{/login}"  th:method="post">    
-			<div class="input">
-				<label class="label">メールアドレス</label>
-				<input type="text" class="form-control-1" id="email" name="username" required autofocus>
+		<main>
+			<h2>ログイン</h2>
+			<div class="form">
+				<form th:action="@{/login}"  th:method="post">    
+					<div class="input">
+						<label class="label">メールアドレス</label>
+						<input type="text" class="form-control-1" id="email" name="username" required autofocus>
+					</div>
+					<div class="input">
+						<label class="label">パスワード</label>
+						<input type="password" class="form-control-2" id="password" name="password" required >
+					</div>
+					<div th:if="${param.error}" class="alert">
+                    	名前またはパスワードが正しくありません
+            		</div>
+					<input type="submit" value="ログインする" class="botton_blue_1">
+				</form>
+				<button onclick="location.href='add'" class="botton_blue_2">新規登録</button>
 			</div>
-			<div class="input">
-				<label class="label">パスワード</label>
-				<input type="password" class="form-control-2" id="password" name="password" required >
-			</div>
-			<div th:if="${param.error}" class="alert">
-                    名前またはパスワードが正しくありません
-            </div>
-			<input type="submit" value="ログインする" class="botton_blue_1">
-		</form>
-			<button onclick="location.href='add'" class="botton_blue_2">新規登録</button>
-		</div>
+		</main>
 		<footer>
 			<p>portfolio site</p>
 		</footer>
-	</div>
+	
 </body>
 </html>

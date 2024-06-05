@@ -30,7 +30,7 @@
         	</div>
 			<div class="input">
 				<label class="email-label">メールアドレス</label>
-				<input type="email" th:field="*{email}" class="input">
+				<input type="text" th:field="*{email}" class="input">
 				<div th:if="${#fields.hasErrors('email')}" th:errors="*{email}" th:errorclass="err">
             		<label class="text-danger" th:text="${error}"></label>
             	</div>

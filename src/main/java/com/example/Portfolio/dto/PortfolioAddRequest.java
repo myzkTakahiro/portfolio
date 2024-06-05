@@ -20,9 +20,8 @@ public class PortfolioAddRequest implements Serializable {
 	  
 	 	
 	    @NotEmpty(message = "パスワードは必ず入力してください")
-	    @Pattern(regexp = "(?=.*[0-9])(?=.*[a-zA-Z]).{6,30}",
+	    @Pattern(regexp = "(?=.*[0-9])(?=.*[a-zA-Z]).{8,30}",
 	    message = "英数字8文字以上で入力してください")
-	    @Size(min = 8)
 	    private String password;
 	 
 	    
