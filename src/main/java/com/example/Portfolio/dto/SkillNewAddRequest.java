@@ -1,6 +1,7 @@
 package com.example.Portfolio.dto;
 
 import java.io.Serializable;
+import java.time.Instant;
 
 import org.hibernate.validator.constraints.UniqueElements;
 import org.springframework.data.relational.core.mapping.Column;
@@ -34,4 +35,6 @@ public class SkillNewAddRequest  implements Serializable {
 	
 	private Integer user_id;
 	
+	
+	private Instant month;
 }

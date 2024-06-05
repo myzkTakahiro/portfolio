@@ -2,7 +2,7 @@ package com.example.Portfolio.entity;
 
 import java.io.Serializable;
 import java.time.Instant;
-import java.util.Date;
+import java.sql.Date;
 
 import org.springframework.data.relational.core.mapping.Column;
 import org.springframework.data.relational.core.mapping.Table;
@@ -27,6 +27,6 @@ public class LearningData implements Serializable {
 	 @Column(value="user_id")
 	 private Integer userId;
 	 
-	 private Instant month;
+	 private Integer month;
 	
 }
