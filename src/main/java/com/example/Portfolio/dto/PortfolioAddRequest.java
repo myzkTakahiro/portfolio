@@ -2,6 +2,7 @@ package com.example.Portfolio.dto;
 
 import java.io.Serializable;
 
+import jakarta.servlet.http.HttpSession;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Size;

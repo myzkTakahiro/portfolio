@@ -13,6 +13,7 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.web.context.HttpSessionSecurityContextRepository;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -40,6 +41,9 @@ import com.example.Portfolio.entity.users;
 import com.example.Portfolio.service.LearningDataService;
 import com.example.Portfolio.service.PortfolioService;
 import com.example.Portfolio.service.PortfolioUserDetailsService;
+
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpSession;
 
 @RequestMapping("/")
 @Controller
@@ -117,7 +121,7 @@ public class PortfolioController {
 
 	 
 	 @RequestMapping(value = "/add", method = RequestMethod.POST)
-	    public String create(@Validated @ModelAttribute PortfolioAddRequest portfolioRequest, BindingResult result, Model model) {
+	    public String create(@Validated @ModelAttribute PortfolioAddRequest portfolioRequest, BindingResult result, Model model,HttpServletRequest request) {
 	        if (result.hasErrors()) {
 	            // 入力チェックエラーの場合
 	            List<String> errorList = new ArrayList<String>();
@@ -129,7 +133,38 @@ public class PortfolioController {
 	        }
 	        // ユーザー情報の登録
 	        portfolioService.save(portfolioRequest);
-	        return "redirect:/login";
+	        
+	        try {
+	            // ユーザー情報をロード
+	            UserDetails 
+	            userDetails = userDetailsService.loadUserByUsername(portfolioRequest.getEmail());
+
+	            // ロードしたユーザー情報をログに出力
+	            System.out.println("User details: " + userDetails);
+
+	            // 認証トークン（ユーザー名、パスワード、およびユーザーの権限情報を保持）の作成
+	            UsernamePasswordAuthenticationToken authToken = 
+	                new UsernamePasswordAuthenticationToken(userDetails, portfolioRequest.getPassword(), userDetails.getAuthorities());
+
+	            // 作成した認証トークンをログに出力
+	            System.out.println("Authentication token: " + authToken);
+
+	            // セキュリティコンテキストに認証情報を設定
+	            SecurityContextHolder.getContext().setAuthentication(authToken);
+
+	            // 認証情報をセッションに保存
+	            HttpSession session = request.getSession(true);
+	            session.setAttribute(HttpSessionSecurityContextRepository.SPRING_SECURITY_CONTEXT_KEY, SecurityContextHolder.getContext());
+
+	        } catch (Exception e) {
+	            // エラーメッセージをログに出力
+	            System.out.println("Login error: " + e.getMessage());
+	            model.addAttribute("loginError", "ログインに失敗しました: " + e.getMessage());
+	            return "user/add";
+	        }
+
+
+	        return "redirect:/top";
 	    }
 	 
 	 @RequestMapping(value = "/profile", method = RequestMethod.POST)
