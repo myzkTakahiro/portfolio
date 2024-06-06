@@ -88,10 +88,12 @@ public class PortfolioController {
 	 }
 	 
 	 @GetMapping("/skilledit")
-		 public String displayList(Model model) {
+		 public String displayList(Authentication loginUser, Model model) {
 		        List<LearningData> userList = learningdataService.Allfind();
 		        model.addAttribute("userlist", userList);
 		        model.addAttribute("skillTimeUpdateRequest", new SkillTimeUpdateRequest());
+		        PortfolioUserDetails userDetails = (PortfolioUserDetails) loginUser.getPrincipal();
+		        model.addAttribute("id", userDetails.getId());
 		 return "user/skilledit";
 	 }
 	 

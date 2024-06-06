@@ -41,7 +41,7 @@
 								</tr>
 							</thead>
 							<tbody class="table-row">
-								<tr th:if="${learn.categoryId} == 1" th:each="learn : ${userlist}" th:object="${learn}" class="row">
+								<tr th:if="${learn.categoryId} == 1 and ${learn.userId} == ${id}" th:each="learn : ${userlist}" th:object="${learn}" class="row">
 									<td class="cell"><div th:text="*{name}" class="name"></div></td>
 									<td class="time">
 										<form th:action="@{/skilledit}" th:method="post" class="save-form">
@@ -79,7 +79,7 @@
 								</tr>
 							</thead>
 							<tbody class="table-row">
-								<tr th:if="${learn.categoryId} == 2" th:each="learn : ${userlist}" th:object="${learn}" class="row">
+								<tr th:if="${learn.categoryId} == 2 and ${learn.userId} == ${id}" th:each="learn : ${userlist}" th:object="${learn}" class="row">
 									<td class="cell"><div th:text="*{name}" class="name"></div></td>
 									<td class="time">
 										<form th:action="@{/skilledit}" th:method="post" class="save-form">
@@ -117,7 +117,7 @@
 								</tr>
 							</thead>
 							<tbody class="table-row">
-								<tr th:if="${learn.categoryId} == 3" th:each="learn : ${userlist}" th:object="${learn}" class="row">
+								<tr th:if="${learn.categoryId} == 3 and ${learn.userId} == ${id}" th:each="learn : ${userlist}" th:object="${learn}" class="row">
 									<td class="cell"><div th:text="*{name}" class="name"></div></td>
 									<td class="time">
 										<form th:action="@{/skilledit}" th:method="post" class="save-form">
