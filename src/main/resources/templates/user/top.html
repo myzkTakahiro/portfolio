@@ -13,14 +13,15 @@
 <body>
 	<div class="container">
 		<header>
-			<h1 class="logo">My Portfolio</h1>
+			<div class="header_container">
+				<h1 class="headerlogo">My Portfolio</h1>
 			
-			<form th:action="@{/logout}" method="post">
-				<input type="submit" name="logout" value="ログアウト" class="button_white"/>
-			</form>
-			
+				<form th:action="@{/logout}" method="post">
+					<input type="submit" name="logout" value="ログアウト" class="button_white"/>
+				</form>
+			</div>
 		</header>
-		<div class="main">
+		<main>
 			<div class="wrapper">
 				<div class="profile">
 					<img>
@@ -33,16 +34,18 @@
 							<input type="submit" value="自己紹介を編集する" class="button_blue_1">
 						</form>
 					</div>
+					<P th:text="${userName}" class="name"></P>
 				</div>
 				<div class="chart">
 					<div class="frame">
 						<div class="skill">
 							<div class="skill-title">学習チャート</div>
 						</div>
-						<input type="button" onclick="location.href='./skilledit'" value="編集する" class="button_blue_2">
+						<div class="btn_container">
+							<input type="button" onclick="location.href='./skilledit'" value="編集する" class="button_blue_2">
+						</div>
 					</div>
 				</div>
-				<P th:text="${userName}" class="name"></P>
 			</div>
 			<div class="mychart">
 				<canvas id="chart"></canvas>
@@ -71,11 +74,11 @@
 			            	datasets: [
 			            		{
 								label: 'バックエンド',
-								data: [arrays[0][0].studyTime],
+								data: [],
 								backgroundColor: 'rgb(254,178,194,0.6)',
 								}, {
 								label: 'フロントエンド',
-								data: [arrays[1][0].studyTime],
+								data: [],
 								backgroundColor: '	rgb(247,209,170,0.6)',
 								}, {
 								label: 'インフラ',
@@ -88,9 +91,11 @@
 
 		   		</script>
 			</div>
-		</div>
+		</main>
 		<footer>
-			<p class="footerlogo">portfolio site</p>
+			<div class="footer_container">
+				<div class="footerlogo">portfolio site</div>
+			</div>
 		</footer>
 	</div>
 </body>

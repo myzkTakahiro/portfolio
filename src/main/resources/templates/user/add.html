@@ -2,7 +2,6 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8" http-equiv="Content-Type" />
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
 <link th:href="@{/css/stylesheet.css}" rel="stylesheet" type="text/css">
 
 <title>sign in</title>
@@ -12,43 +11,46 @@
 </head>
 <body class = "container">
 	<header>
-		<h1 class="logo">My Portfolio</h1>
-		<div class = "btn-white"><a class="text" href="users/login">ログイン</a></div>
+		<div class="header_container">
+			<h1 class="headerlogo">My Portfolio</h1>
+			<input type="submit" class = "button_white" value="ログイン" onclick="location.href='./login'">
+		</div>
 	</header>
-	
-	<h2 class="title">新規登録</h2>
-	
-	
-	<form th:action="@{/add}" th:object="${portfolioAddRequest}" th:method="post">
-		<div class="form">
-			<div class="input">
-				<label class="name-label">氏名</label>
-				<input type="text" th:field="*{name}" class="input">
-				<div th:if="${#fields.hasErrors('name')}" th:errors="*{name}" th:errorclass="err">
-            		<label class="text-danger" th:text="${error}"></label>
-            	</div>
-        	</div>
-			<div class="input">
-				<label class="email-label">メールアドレス</label>
-				<input type="text" th:field="*{email}" class="input">
-				<div th:if="${#fields.hasErrors('email')}" th:errors="*{email}" th:errorclass="err">
-            		<label class="text-danger" th:text="${error}"></label>
-            	</div>
+	<main>
+		<h2 class="title">新規登録</h2>
+		<form th:action="@{/add}" th:object="${portfolioAddRequest}" th:method="post">
+			<div class="form">
+				<div class="IP">
+					<label class="label">氏名</label>
+					<input type="text" th:field="*{name}" class="input">
+					<div th:if="${#fields.hasErrors('name')}" th:errors="*{name}" th:errorclass="err">
+            			<label class="text-danger" th:text="${error}"></label>
+            		</div>
+        		</div>
+				<div class="IP">
+					<label class="label">メールアドレス</label>
+					<input type="text" th:field="*{email}" class="input">
+					<div th:if="${#fields.hasErrors('email')}" th:errors="*{email}" th:errorclass="err">
+            			<label class="text-danger" th:text="${error}"></label>
+            		</div>
+				</div>
+				<div class="IP">
+					<label class="label">パスワード</label>
+					<input type="password" th:field="*{password}" class="input">
+					<div th:if="${#fields.hasErrors('password')}" th:errors="*{password}" th:errorclass="err">
+            			<label class="text-danger" th:text="${error}"></label>
+            		</div>
+				</div>
+				<div class="add">
+					<input type="submit" value="登録する" class="button_blue">
+				</div>
 			</div>
-			<div class="input">
-				<label class="pass-label">パスワード</label>
-				<input type="password" th:field="*{password}" class="input">
-				<div th:if="${#fields.hasErrors('password')}" th:errors="*{password}" th:errorclass="err">
-            		<label class="text-danger" th:text="${error}"></label>
-            	</div>
-			</div>
-			<div class="add">
-				<input type="submit" value="登録する" class="add-btn">
-			</div>
-		</div>	
-	</form>
-	<div class="footer">
-		<p>portfolio site</p>
-	</div>
+		</form>
+	</main>
+	<footer>
+		<div class="footer_container">
+			<div class="footerlogo">portfolio site</div>
+		</div>
+	</footer>
 </body>
 </html>
