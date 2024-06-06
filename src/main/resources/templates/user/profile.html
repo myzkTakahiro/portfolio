@@ -22,7 +22,7 @@
 			<div class="form">
 				<div class="input-text">
 					<label class="text">自己紹介文</label>
-					<textarea name="text" th:field="*{self_introduction}" ></textarea>
+					<textarea th:name="self_introduction" th:text="${selfintroduction}"></textarea>
 					<div th:if="${#fields.hasErrors('self_introduction')}" th:errors="*{self_introduction}" th:errorclass="err">
             		<label class="text-danger" th:text="${error}"></label>
             	</div>

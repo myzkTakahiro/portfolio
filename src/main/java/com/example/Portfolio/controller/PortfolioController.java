@@ -83,6 +83,7 @@ public class PortfolioController {
 		 PortfolioUserDetails userDetails = (PortfolioUserDetails) loginUser.getPrincipal();
 		 model.addAttribute("portfolioUpdateRequest", new PortfolioUpdateRequest());
 		 model.addAttribute("id", userDetails.getId());
+		 model.addAttribute("selfintroduction", userDetails.getSelfIntroduction());
 		 return "user/profile";
 	 }
 	 
@@ -177,6 +178,7 @@ public class PortfolioController {
 	            model.addAttribute("validationError", errorList);
 	            PortfolioUserDetails userDetails = (PortfolioUserDetails) loginUser.getPrincipal();
 	            model.addAttribute("id", userDetails.getId());
+	            model.addAttribute("selfintroduction", userDetails.getSelfIntroduction());
 	            return "user/profile";
 	        }
 	        // ユーザー情報の更新
