@@ -65,7 +65,16 @@
         				console.log(/*[[${totalTime}]]*/);
         				console.log(arrays[0][0].studyTime);
         				
-		  			let ctx = document.getElementById("chart");
+        			let ctx = document.getElementById("chart");
+        			
+        				function getStudyTime(arr, index) {
+        					if (!arr) {
+        					         return 0;
+        					     }
+        			        return (arr[index] && arr[index].studyTime) ? arr[index].studyTime : 0;
+        			    }
+        				
+		  			
 		   			let samplechart = new Chart(ctx, {
 
 						type: 'bar',
@@ -74,16 +83,16 @@
 			            	datasets: [
 			            		{
 								label: 'バックエンド',
-								data: [],
-								backgroundColor: 'rgb(254,178,194,0.6)',
+								data: [getStudyTime(arrays[0], 0), getStudyTime(arrays[0], 1), getStudyTime(arrays[0], 2)],
+								backgroundColor: 'rgb(254,178,194,0.6)', 
 								}, {
 								label: 'フロントエンド',
-								data: [],
-								backgroundColor: '	rgb(247,209,170,0.6)',
+								data: [getStudyTime(arrays[1], 0), getStudyTime(arrays[1], 1), getStudyTime(arrays[1], 2)],
+								backgroundColor: 'rgb(247,209,170,0.6)',
 								}, {
 								label: 'インフラ',
-								data: [],
-								backgroundColor: '	rgb(250,230,181,0.6)',
+								data: [getStudyTime(arrays[2], 0), getStudyTime(arrays[2], 1), getStudyTime(arrays[2], 2)],
+								backgroundColor: 'rgb(250,230,181,0.6)',
 								}
 							],
 						},

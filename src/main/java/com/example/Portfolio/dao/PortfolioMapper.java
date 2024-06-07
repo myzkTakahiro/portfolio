@@ -44,7 +44,7 @@ public interface PortfolioMapper {
 	
 	void delete(Long id);
 	
-	List<StudyTime> sumTime();
+	List<StudyTime> sumTime(Long userId);
 
 }
 

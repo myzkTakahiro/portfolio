@@ -72,7 +72,8 @@ public class PortfolioController {
 		 	model.addAttribute("portfolioAddRequest", new PortfolioAddRequest());
 	        model.addAttribute("userName", userDetails.getName());
 	        model.addAttribute("selfintroduction", userDetails.getSelfIntroduction());
-	        List<StudyTime> totalTime = learningdataService.sumTime();
+	        Long userId = userDetails.getId();
+	        List<StudyTime> totalTime = learningdataService.sumTime(userId);
 	        model.addAttribute("totalTime", totalTime);
 	        System.out.println(totalTime);
 		 return "user/top";

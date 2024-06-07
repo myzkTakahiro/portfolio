@@ -25,7 +25,7 @@ public class StudyTime implements Serializable {
 	 private int studyTime;
 	 
 	 @Column(value="user_id")
-	 private Integer userId;
+	 private Long userId;
 	 
 	 private Integer month;
 }
