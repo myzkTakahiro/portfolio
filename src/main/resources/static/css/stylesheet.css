@@ -1,191 +1,165 @@
 @charset "UTF-8";
 
-
-.logo {
-	color: white;
-	font-size: 36px;
-	float: left;
-	font-weight: 700;
-	font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-	line-height: 42.19px;
+body {
+	padding-top: 120px;
+	padding-bottom: 80px;
+	margin: 0;
 }
 
 
-.btn-white {
+.container {
+	width: 100%;
+	
+}
+
+main {
+	width: 100%;
+}
+
+.header_container {
+	width: 100%;
+	height: 120px;
+	position: fixed;
+	top: 0;
+	left: 0;
+	background-color: #1B5678;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	z-index: 10;
+}
+
+.headerlogo {
+	width: 241px;
+	height: 42px;
+	font-family: Roboto;
+	font-weight: 700;
+	font-size: 36px;
+	color: #FFFFFF;
+	line-height: 42.19px;
+	margin-left: 40px;
+	float: left;
+}
+
+.button_white {
 	float: right;
 	width: 152px;
 	height: 53px;
+	font-family: Roboto;
+	font-weight: 400;
+	font-size: 18px;
+	color: rgba(0, 0, 0, 0.75);
+	line-height: 21.09px;
 	border-radius: 4px;
 	background-color: white;
 	padding: 16px 40px;
+	margin-right: 40px;
 }
 
-.text {
-	width: 72px;
-	height: 21px;
-	font-family: Roboto;
+
+footer {
+	width: 100%;
+	height: 40px;
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	background-color: #1B5678;
+	z-index: 10;
+}
+
+.footer_container {
+	width: 100%;
+	height: 40px;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.footerlogo {
+	width: 100%;
 	font-weight: 400;
 	font-size: 18px;
+	font-family: Roboto;
+	color: #FFFFFF;
 	line-height: 21.09px;
-	color: #000000;
+	text-align: center;
 }
 
-header {
-	background-color: #1B5678;
-	width: 1440px;
-	height: 120px;
-	padding: 0px 40px 0px 40px;
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-
-}
-
-
-.form {
-	position: absolute;
-	width: 480px;
-	height: 341px;
-	top: 324px;
-	left:480px;
-	display: block;
-	gap: 48px;
-	position: relative;
-}
 
 
 .title {
-	position: absolute;
-	font-family: Roboto;
-	font-size: 31px;
-	font-weight: 400;
-	line-height: 48.02px;
-	top: 200px;
-	left: 648px;
-	color: #000000;
 	width: 144px;
 	height: 48px;
-	opacity: 75%;
+	font-size: 36px;
+	font-weight: 400;
+	font-family: Roboto;
+	line-height: 48.02px;
+	margin: 0 auto;
+	margin-top: 80px;
 }
 
-
-.footer {
-	width: 1440px;
-	height: 40px;
-	position: absolute;
-	top: 984px;
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	background-color: #1B5678;
-}
-
-.footer p {
-	color: white;
-	width: 102px;
-	height: 21px;
-	font-weight:400;
-	font-size: 18px;
-	line-height: 21.09px;
-	margin: auto;
-}
-
-.container {
-	box-sizing: content-box;
-	width: 1440px;
-	height: 1024px;
-	margin: 0;
-	padding: 0;
-	position: relative;
-}
-
+form {
+	width: 480px;
+	height: 341px;
+	margin: 0 auto;
+	margin-top: 80px;
+} 
 
 .input {
 	width: 480px;
 	height: 48px;
-	display: inline-block;
+	position: absolute;
 	outline: none;
 	border-style: none none solid none;
 	border-width: 1px;
 	border-color:#000000;
+	top: 0;
+	left: 0;
+}
+
+.IP {
+	width: 480px;
+	height: 48px;
 	margin-bottom: 48px;
 	position: relative;
 }
 
+.label {
+	font-family: Roboto;
+	font-weight: 400;
+	font-size: 12px;
+	line-height: 12px;
+	letter-spacing: 0.15px;
+	color: rgba(0, 0, 0, 0.54);
+	position: absolute;
+	z-index: 4;
+}
 
-.add-btn {
+.button_blue {
 	width: 232px;
 	height: 53px;
 	padding: 16px 80px;
-	color: rgba(255, 255, 255, 1);
+	color: #FFFFFF;
+	font-size: 18px;
+	font-weight: 400;
+	font-family: Roboto;
 	background-color: #1B5678;
-	font-size: 16px;
-	border-radius: 4px 0px 0px 0px;
-	cursor: pointer;
-	position: absolute;
-	left: 124px;
+	border-radius: 4px;
 }
 
-
-
-
-.name-label {
-	width:25px;
-	height: 12px;
-	font-size: 12px;
-	gap: 10px;
-	position: absolute;
-	top: 0;
-	left: 0;
-	z-index: 3;
+.add {
+	width: 232px;
+	height: 53px;
+	margin: 0 auto;
 }
-
-.email-label {
-	width: 70px;
-	height: 12px;
-	font-size: 12px;
-	gap: 10px;
-	position: absolute;
-	top: 0;
-	left: 0;
-	z-index: 3;
-}
-
-.pass-label {
-	width: 56px;
-	height: 12px;
-	font-size: 12px;
-	gap: 10px;
-	position: absolute;
-	top: 0;
-	left: 0;
-	z-index: 3;
-}
-
 
 .err {
 	color: red;
-	height: 48px;
+	font-family: Roboto;
+	font-size: 14px;
 	position: absolute;
-	top: 48px;
-	color: red;
+	top: 50px;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

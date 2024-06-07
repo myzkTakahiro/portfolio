@@ -10,44 +10,47 @@
 <body>
 	<div class="container">
 		<header>
-			<h1 class="logo">My Portfolio</h1>
+			<div class="header_container">
+				<h1 class="headerlogo">My Portfolio</h1>
 			
-			<form th:action="@{/logout}" method="post">
-				<input type="submit" name="logout" value="ログアウト" class="button_white"/>
-			</form>
-		</header>
-		<h1 class="title" th:text="${category_name.name} + 'を追加'"></h1>
-		
-		
-		<form th:action="@{/skillnew}" th:object="${skillNewAddRequest}" method="post">
-		<input type="hidden" th:value="${category_id}" name="category_id">
-		<input type="hidden" th:value="${user_id}" name="user_id">
-			<div class="form">
-				<div class="contentbox">
-					<div class="input">
-						<label class="label">項目名</label>
-						<input type="text"  th:field="${skillNewAddRequest.name}"  class="controller-1"/>
-					</div>
-					<div th:if="${#fields.hasErrors('name')}" th:errors="${skillNewAddRequest.name}" th:errorclass="err">
-            			<label class="text-danger" th:text="${error}"></label>
-            		</div>
-				</div>
-				<div class="timebox">
-					<div class="input">
-						<label class="label">学習時間</label>
-						<input type="number" th:field="*{study_time}" class="controller-2">
-					</div>
-					<p class="helptext">分単位で入力してください</p>
-					<div th:if="${#fields.hasErrors('study_time')}" th:errors="*{study_time}" th:errorclass="err">
-            			<label class="text-danger" th:text="${error}"></label>
-            		</div>
-				</div>
-				<input type="submit" value="追加する" class="button_blue">
+				<form th:action="@{/logout}" method="post">
+					<input type="submit" name="logout" value="ログアウト" class="button_white"/>
+				</form>
 			</div>
-		</form>
-		
+		</header>
+		<main>
+			<h1 class="title" th:text="${category_name.name} + 'を追加'"></h1>
+			<form th:action="@{/skillnew}" th:object="${skillNewAddRequest}" method="post">
+				<input type="hidden" th:value="${category_id}" name="category_id">
+				<input type="hidden" th:value="${user_id}" name="user_id">
+				<div class="form">
+					<div class="contentbox">
+						<div class="input">
+							<label class="label">項目名</label>
+							<input type="text"  th:field="${skillNewAddRequest.name}"  class="controller-1"/>
+						</div>
+						<div th:if="${#fields.hasErrors('name')}" th:errors="${skillNewAddRequest.name}" th:errorclass="err">
+            				<label class="text-danger" th:text="${error}"></label>
+            			</div>
+					</div>
+					<div class="timebox">
+						<div class="input">
+							<label class="label">学習時間</label>
+							<input type="number" th:field="*{study_time}" class="controller-2">
+						</div>
+						<p class="helptext">分単位で入力してください</p>
+						<div th:if="${#fields.hasErrors('study_time')}" th:errors="*{study_time}" th:errorclass="err">
+            				<label class="text-danger" th:text="${error}"></label>
+            			</div>
+					</div>
+					<input type="submit" value="追加する" class="button_blue">
+				</div>
+			</form>
+		</main>
 		<footer>
-			<p class="footerlogo">portfolio site</p>
+			<div class="footer_container">
+				<div class="footerlogo">portfolio site</div>
+			</div>
 		</footer>
 	</div>
 </body>

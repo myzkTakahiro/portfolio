@@ -29,6 +29,6 @@ public class SkillTimeUpdateRequest implements Serializable {
 	
 	private Integer category_id;
 	
-	private Integer Useer_id;
+	private Integer user_id;
 
 }

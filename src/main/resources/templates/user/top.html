@@ -4,20 +4,24 @@
 <meta charset="UTF-8" http-equiv="Content-Type" />
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
 <link th:href="@{/css/top.css}" rel="stylesheet" type="text/css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="js/simple_chart_display.js"></script>
 
 <title>top-loggedin</title>
 </head>
 <body>
 	<div class="container">
 		<header>
-			<h1 class="logo">My Portfolio</h1>
+			<div class="header_container">
+				<h1 class="headerlogo">My Portfolio</h1>
 			
-			<form th:action="@{/logout}" method="post">
-				<input type="submit" name="logout" value="ログアウト" class="button_white"/>
-			</form>
-			
+				<form th:action="@{/logout}" method="post">
+					<input type="submit" name="logout" value="ログアウト" class="button_white"/>
+				</form>
+			</div>
 		</header>
-		<div class="main">
+		<main>
 			<div class="wrapper">
 				<div class="profile">
 					<img>
@@ -30,20 +34,77 @@
 							<input type="submit" value="自己紹介を編集する" class="button_blue_1">
 						</form>
 					</div>
+					<P th:text="${userName}" class="name"></P>
 				</div>
 				<div class="chart">
 					<div class="frame">
 						<div class="skill">
 							<div class="skill-title">学習チャート</div>
 						</div>
-						<input type="submit" value="編集する" class="button_blue_2">
+						<div class="btn_container">
+							<input type="button" onclick="location.href='./skilledit'" value="編集する" class="button_blue_2">
+						</div>
 					</div>
 				</div>
-				<P th:text="${userName}" class="name"></P>
 			</div>
-		</div>
+			<div class="mychart">
+				<canvas id="chart"></canvas>
+					<script type="text/javascript"  th:inline="javascript">
+        				let totalTime = /*[[${totalTime}]]*/ [];
+        				let groupedByCategory = {};
+        				totalTime.forEach(expense => {
+            			let category = expense.categoryId;
+            			if (!groupedByCategory[category]) {
+                			groupedByCategory[category] = [];
+            				}
+            			groupedByCategory[category].push(expense);
+        				});
+        				let arrays = Object.keys(groupedByCategory).map(key => groupedByCategory[key]);
+        				console.log(arrays);
+        				
+        				console.log(/*[[${totalTime}]]*/);
+        				console.log(arrays[0][0].studyTime);
+        				
+        			let ctx = document.getElementById("chart");
+        			
+        				function getStudyTime(arr, index) {
+        					if (!arr) {
+        					         return 0;
+        					     }
+        			        return (arr[index] && arr[index].studyTime) ? arr[index].studyTime : 0;
+        			    }
+        				
+		  			
+		   			let samplechart = new Chart(ctx, {
+
+						type: 'bar',
+						data: {
+			            	labels: ["先々月","先月", "今月"],
+			            	datasets: [
+			            		{
+								label: 'バックエンド',
+								data: [getStudyTime(arrays[0], 0), getStudyTime(arrays[0], 1), getStudyTime(arrays[0], 2)],
+								backgroundColor: 'rgb(254,178,194,0.6)', 
+								}, {
+								label: 'フロントエンド',
+								data: [getStudyTime(arrays[1], 0), getStudyTime(arrays[1], 1), getStudyTime(arrays[1], 2)],
+								backgroundColor: 'rgb(247,209,170,0.6)',
+								}, {
+								label: 'インフラ',
+								data: [getStudyTime(arrays[2], 0), getStudyTime(arrays[2], 1), getStudyTime(arrays[2], 2)],
+								backgroundColor: 'rgb(250,230,181,0.6)',
+								}
+							],
+						},
+					});
+
+		   		</script>
+			</div>
+		</main>
 		<footer>
-			<p class="footerlogo">portfolio site</p>
+			<div class="footer_container">
+				<div class="footerlogo">portfolio site</div>
+			</div>
 		</footer>
 	</div>
 </body>

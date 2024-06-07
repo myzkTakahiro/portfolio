@@ -1,19 +1,46 @@
 @charset "UTF-8";
 
-.container {
-	width: 1440px;
-	height: 1024px;
+body {
+	padding-top: 120px;
+	padding-bottom: 80px;
 	margin: 0;
-	padding: 0;
 }
 
-.logo {
-	color: white;
-	font-size: 36px;
-	float: left;
+
+.container {
+	width: 100%;
+	margin: 0 auto;
+	
+}
+
+main {
+	width: 100%;
+	margin-top: 80px;
+}
+
+.header_container {
+	width: 100%;
+	height: 120px;
+	position: fixed;
+	top: 0;
+	left: 0;
+	background-color: #1B5678;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	z-index: 10;
+}
+
+.headerlogo {
+	width: 241px;
+	height: 42px;
+	font-family: Roboto;
 	font-weight: 700;
-	font-family: Roboto; 
+	font-size: 36px;
+	color: #FFFFFF;
 	line-height: 42.19px;
+	margin-left: 40px;
+	float: left;
 }
 
 .button_white {
@@ -23,68 +50,45 @@
 	font-family: Roboto;
 	font-weight: 400;
 	font-size: 18px;
+	color: rgba(0, 0, 0, 0.75);
 	line-height: 21.09px;
 	border-radius: 4px;
 	background-color: white;
 	padding: 16px 0px;
+	margin-right: 40px;
 }
 
-header {
-	width: 1440px;
-	height: 120px;
-	padding: 0px 40px;
-	background-color: #1B5678;
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	position: relative;
-}
 
 footer {
-	width: 1440px;
+	width: 100%;
 	height: 40px;
-	padding: 0px 40px;
-	margin-top: 1491px;
+	position: fixed;
+	bottom: 0;
+	left: 0;
 	background-color: #1B5678;
+	z-index: 10;
+}
+
+.footer_container {
+	width: 100%;
+	height: 40px;
+	display: flex;
+	align-items: center;
 	justify-content: space-between;
-	position: relative;
 }
 
 .footerlogo {
-	width: 120px;
-	height: 21px;
+	width: 100%;
 	font-weight: 400;
 	font-size: 18px;
 	font-family: Roboto;
 	color: #FFFFFF;
 	line-height: 21.09px;
-	position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+	text-align: center;
 }
 
-.main {
-	width: 1440px;
-	height: 742px;
-	padding: o;
-	position: relative;
-}
 
-.profile {
-	width: 960px;
-	height: 360px;
-	position: relative;
-}
 
-.content {
-	width: 520px;
-	height: 256px;
-	position: absolute;
-	top: 52px;
-	right: 0;
-	position: relaaive;
-}
 
 .self {
 	width: 240px;
@@ -134,9 +138,6 @@ footer {
 	font-size: 18px;
 	line-height: 21.09px;
 	color: white;
-	position: absolute;
-	left: -2px;
-	bottom: 0px;
 }
 
 .button_blue_2 {
@@ -150,47 +151,24 @@ footer {
 	font-size: 18px;
 	line-height: 21.09px;
 	color: white;
-	position: absolute;
-	bottom: 0;
-	left: 124px;
 }
 
-.chart {
-	width: 960px;
-	height: 331px;
-	position: absolute;
-	top: 480px;
-}
-
-.frame {
-	width: 400px;
-	height: 151px;
+.btn_container {
+	width: 152px;
+	height: 53px;
 	margin: 0 auto;
-	position: relative;
-}
-
-
-.wrapper {
-	width: 960px;
-	height: 582px;
-	margin-top: 90px;
-	left: 240px;
-	position: relative;
+	margin-top: 40px;
 }
 
 .name {
-	width: 194px;
-	height: 57px;
+	width: 200px;
 	font-family: Roboto;
 	font-weight: 400;
 	font-size: 20px;
 	line-height: 20px;
-	text-align: center;
 	color: #000000;
-	margin: 0;
-	position: absolute;
-	top: 370px;
-	left: 86px;
+	text-align: center;
+	margin: 10px 0 0 80px;
 }
 
 
@@ -200,5 +178,47 @@ img {
   	border-radius:50%;
   	background-color: gray;
 }
+
+
+.profile {
+	width: 960px;
+	height: 380px;
+	margin: 0 auto;
+}
+
+.content {
+	width: 520px;
+	height: 256px;
+	margin-top: 52px;
+	float: right;
+}
+
+.text {
+	width: 520px;
+	height: 81px;
+	margin: 32px 0;
+}
+
+.chart {
+	width: 400px;
+	height: 151px;
+	margin: 0 auto;
+	margin-top: 100px;
+}
+
+.frame {
+	width: 400px;
+	height: 151px;
+	
+}
+
+.mychart {
+	width: 1081px;
+	height: 532.5px;
+	margin: 0 auto;
+	margin-top: 60px;
+}
+
+
 
 
